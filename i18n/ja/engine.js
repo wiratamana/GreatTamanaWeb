@@ -192,5 +192,6 @@ GTW.i18n.add("ja", {
   "engine.credits.13.t": "saba（PMX/VMDファイルリーダー）",
   "engine.credits.14.t": "cpp-httplib",
   "engine.credits.15.t": "nlohmann/json",
-  "engine.credits.16.t": "GoogleTest"
+  "engine.credits.16.t": "GoogleTest",
+  "engine.credits.17.t": "Sponzaテストシーン（コードではなくアセット）：Crytek、Frank Meinl、Marko Dabrovic。Khronos glTF Sample Assets経由で、Cryengine Limited License Agreementに基づき使用。"
 });

@@ -55,5 +55,22 @@ GTW.i18n.add("en", {
   "slot.case-frame-debugger": "Frame Debugger",
   "slot.case-frame-debugger.hint": "The Frame Debugger with a captured frame.",
   "slot.case-scene-view": "Scene view",
-  "slot.case-scene-view.hint": "Scene view with the grid and the view-axis gizmo."
+  "slot.case-scene-view.hint": "Scene view with the grid and the view-axis gizmo.",
+
+  "slot.sponza-atrium": "Sponza atrium, seen through an arch down the colonnade (Sponza model: see credits on the engine page)",
+  "slot.sponza-atrium.hint": "Sponza atrium, wide view down the colonnade.",
+  "slot.sponza-arcade": "Sponza arcade with PBR materials, banners and ivy (Sponza model: see credits on the engine page)",
+  "slot.sponza-arcade.hint": "Sponza arcade, low camera between the columns.",
+  "slot.sponza-banners": "Sponza banners seen from below, with the open sky above (Sponza model: see credits on the engine page)",
+  "slot.sponza-banners.hint": "Sponza, camera looking up at the banners and the open sky.",
+  "slot.sponza-lion": "Sponza lion head wall at the end of the hall (Sponza model: see credits on the engine page)",
+  "slot.sponza-lion.hint": "Sponza, the lion head wall.",
+  "slot.terrain-snow-clouds": "Terrain scene with volumetric clouds in daylight",
+  "slot.terrain-snow-clouds.hint": "Open Scene: terrain with volumetric clouds, day.",
+  "slot.terrain-sunset": "Terrain scene at sunset: low sun, long shadows, golden clouds",
+  "slot.terrain-sunset.hint": "Open Scene: terrain at sunset.",
+  "slot.terrain-dusk": "Terrain scene at dusk with a low sun from the side",
+  "slot.terrain-dusk.hint": "Open Scene: terrain at dusk.",
+  "slot.clouds-sunset-sky": "Volumetric clouds with the sun on the horizon: sun glare and golden cloud edges",
+  "slot.clouds-sunset-sky.hint": "Open Scene: low sun through the clouds."
 });

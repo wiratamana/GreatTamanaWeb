@@ -192,5 +192,6 @@ GTW.i18n.add("en", {
   "engine.credits.13.t": "saba (PMX/VMD file readers)",
   "engine.credits.14.t": "cpp-httplib",
   "engine.credits.15.t": "nlohmann/json",
-  "engine.credits.16.t": "GoogleTest"
+  "engine.credits.16.t": "GoogleTest",
+  "engine.credits.17.t": "Sponza test scene (not code): Crytek, Frank Meinl and Marko Dabrovic, from the Khronos glTF Sample Assets. Used under the Cryengine Limited License Agreement."
 });

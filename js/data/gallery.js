@@ -9,6 +9,16 @@
   GTW.galleryGroups = ["final", "process", "tools", "media"];
 
   GTW.gallery = [
+    /* engine demo scenes (Sponza and the terrain + cloud Open Scene), files live in assets/media/ */
+    { slot: "terrain-sunset", kind: "image", g: "final" },
+    { slot: "clouds-sunset-sky", kind: "image", g: "final" },
+    { slot: "terrain-snow-clouds", kind: "image", g: "final" },
+    { slot: "terrain-dusk", kind: "image", g: "final" },
+    { slot: "sponza-atrium", kind: "image", g: "final" },
+    { slot: "sponza-arcade", kind: "image", g: "final" },
+    { slot: "sponza-banners", kind: "image", g: "final" },
+    { slot: "sponza-lion", kind: "image", g: "final" },
+
     /* final looks of the volumetric cloud renderer */
     { img: "cloud-hero", g: "final", case: "cloud-depth" },
     { img: "cloud-final-s1", g: "final", case: "cloud-shape" },

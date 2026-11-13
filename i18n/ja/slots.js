@@ -55,5 +55,22 @@ GTW.i18n.add("ja", {
   "slot.case-frame-debugger": "Frame Debugger",
   "slot.case-frame-debugger.hint": "フレームをキャプチャした状態のFrame Debugger。",
   "slot.case-scene-view": "Sceneビュー",
-  "slot.case-scene-view.hint": "グリッドとビュー軸ギズモが表示されたSceneビュー。"
+  "slot.case-scene-view.hint": "グリッドとビュー軸ギズモが表示されたSceneビュー。",
+
+  "slot.sponza-atrium": "アーチ越しに柱廊を見渡すSponzaのアトリウム（Sponzaモデルのクレジットはエンジンのページを参照）",
+  "slot.sponza-atrium.hint": "柱廊を見渡すSponzaのアトリウム。",
+  "slot.sponza-arcade": "PBRマテリアル、バナー、ツタを描画したSponzaのアーケード（Sponzaモデルのクレジットはエンジンのページを参照）",
+  "slot.sponza-arcade.hint": "柱の間から見たSponzaのアーケード（ローアングル）。",
+  "slot.sponza-banners": "下から見上げたSponzaのバナーと開けた空（Sponzaモデルのクレジットはエンジンのページを参照）",
+  "slot.sponza-banners.hint": "バナーと空を見上げたSponza。",
+  "slot.sponza-lion": "ホール奥のライオンの頭の壁面（Sponzaモデルのクレジットはエンジンのページを参照）",
+  "slot.sponza-lion.hint": "Sponzaのライオンの頭の壁面。",
+  "slot.terrain-snow-clouds": "ボリュメトリッククラウドを伴う昼の地形シーン",
+  "slot.terrain-snow-clouds.hint": "Open Scene：昼の地形とボリュメトリッククラウド。",
+  "slot.terrain-sunset": "夕景の地形シーン：低い太陽、長い影、金色の雲",
+  "slot.terrain-sunset.hint": "Open Scene：夕景の地形。",
+  "slot.terrain-dusk": "低い太陽が横から差し込む夕暮れの地形シーン",
+  "slot.terrain-dusk.hint": "Open Scene：夕暮れの地形。",
+  "slot.clouds-sunset-sky": "水平線上の太陽とボリュメトリッククラウド：太陽のグレアと雲の金色の縁",
+  "slot.clouds-sunset-sky.hint": "Open Scene：雲越しの低い太陽。"
 });

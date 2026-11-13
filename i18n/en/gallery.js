@@ -5,7 +5,7 @@ GTW.i18n.add("en", {
   "gallery.eyebrow": "Gallery",
   "gallery.h1": "Gallery",
   "gallery.lead": "Pictures from my engine. Click any picture to enlarge it. Dashed boxes are screenshots and videos that I will add soon.",
-  "gallery.note": "All pictures are renders and screenshots of my own engine. No third-party reference pictures are shown.",
+  "gallery.note": "All pictures are renders and screenshots of my own engine. The Sponza scene is a third-party model (credited on the engine page). No third-party reference pictures are shown.",
 
   "gal.g.all": "All",
   "gal.g.final": "Final looks",
