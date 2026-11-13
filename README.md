@@ -121,7 +121,10 @@ automatically. No HTML to edit.
 | `video` | `<slot>.mp4` `.webm` | demo video |
 
 ```
-python tools/list_slots.py      # which slots are empty, what to capture, which file name to use
+python tools/list_slots.py          # which slots are empty (reads the data files, fast)
+python tools/find_placeholders.py   # what a visitor REALLY still sees as placeholder (renders the pages)
+python tools/find_placeholders.py --cases --out placeholders.md      # also all case pages, saves a report
+python tools/find_placeholders.py --live https://wiratamana.github.io/GreatTamanaWeb/   # check the deployed site
 ```
 The capture hint for every slot is in `i18n/en/slots.js`.
 Safety: no company names, no chat sessions, no file paths with user names, no corporate screenshots.
