@@ -67,7 +67,7 @@
   }
 
   /* contact entries: used by footer and the contact blocks */
-  var CONTACT_KEYS = ["email", "github", "linkedin", "x", "cv"];
+  var CONTACT_KEYS = ["email", "github", "cv"];
   function contactItems() {
     var c = GTW.site.contacts, out = [];
     CONTACT_KEYS.forEach(function (k) {

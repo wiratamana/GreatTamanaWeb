@@ -41,8 +41,6 @@ GTW.i18n.add("en", {
 
   "contact.email": "Email",
   "contact.github": "GitHub",
-  "contact.linkedin": "LinkedIn",
-  "contact.x": "X / Twitter",
   "contact.cv": "CV (PDF)",
   "contact.todo": "not set yet (edit js/data/site.js)",
 

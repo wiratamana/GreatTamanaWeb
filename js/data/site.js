@@ -15,12 +15,10 @@
        Empty string = not shown as a link. While showPlaceholders is true, an empty
        entry is shown as a dashed "not set yet" hint, so you do not forget it.
        Set showPlaceholders to false right before you publish. */
-    showPlaceholders: true,
+    showPlaceholders: false,
     contacts: {
-      email:    "",                                   // e.g. "you@example.com"
+      email:    "wiratamana@icloud.com",
       github:   "https://github.com/wiratamana",
-      linkedin: "",                                   // e.g. "https://www.linkedin.com/in/....."
-      x:        "",                                   // e.g. "https://x.com/....."
       cv:       ""                                    // e.g. "assets/media/cv-wira-tamana.pdf"
     },
 
@@ -29,7 +27,7 @@
        Set public:true only when the repository is really public. */
     repos: {
       engine: { url: "https://github.com/wiratamana/GreatTamanaEngine", public: false },
-      app:    { url: "",                                                public: false },
+      app:    { url: "https://github.com/wiratamana/GreatTamanaApp",    public: true  },
       web:    { url: "https://github.com/wiratamana/GreatTamanaWeb",    public: true  }
     },
 

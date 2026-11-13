@@ -41,8 +41,6 @@ GTW.i18n.add("ja", {
 
   "contact.email": "メール",
   "contact.github": "GitHub",
-  "contact.linkedin": "LinkedIn",
-  "contact.x": "X / Twitter",
   "contact.cv": "職務経歴書（PDF）",
   "contact.todo": "未設定（js/data/site.js を編集してください）",
 

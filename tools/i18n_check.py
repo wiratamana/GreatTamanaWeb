@@ -142,7 +142,7 @@ def main():
     apptools = read(os.path.join(ROOT, "js", "data", "apptools.js"))
     for m in re.finditer(r'id:\s*"(\w+)",\s*n:', apptools):
         used.add("app.tools.%s.t" % m.group(1)); used.add("app.tools.%s.d" % m.group(1))
-    used.update(["nav.engine.overview", "contact.email", "contact.github", "contact.linkedin", "contact.x", "contact.cv",
+    used.update(["nav.engine.overview", "contact.email", "contact.github", "contact.cv",
                  "media.kind.image", "media.kind.webp", "media.kind.video", "ui.more", "ui.before", "ui.after", "ui.toc",
                  "contact.todo", "i18n.partial", "ui.source", "ui.source.request", "footer.updated", "cat.all",
                  "ui.open", "ui.top", "status.rejected"])

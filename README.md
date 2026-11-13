@@ -151,7 +151,7 @@ Repository: `https://github.com/wiratamana/GreatTamanaWeb`. Settings, Pages, Sou
 
 ## 9. Things to decide or fix before publishing
 
-* `js/data/site.js`: email, LinkedIn, CV, repository visibility.
+* `js/data/site.js`: CV, repository visibility.
 * Add your Japanese level to `about.html` (e.g. a row in `about.site` or a new `about.lang` block).
 * **Privacy**: the engine repository history has commits authored with a work-PC identity and an employer email domain
   (about 1,037 commits). If the repository is public, consider rewriting the author with a `.mailmap` or `git filter-repo`.
