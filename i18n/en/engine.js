@@ -193,5 +193,6 @@ GTW.i18n.add("en", {
   "engine.credits.14.t": "cpp-httplib",
   "engine.credits.15.t": "nlohmann/json",
   "engine.credits.16.t": "GoogleTest",
-  "engine.credits.17.t": "Sponza test scene (not code): Crytek, Frank Meinl and Marko Dabrovic, from the Khronos glTF Sample Assets. Used under the Cryengine Limited License Agreement."
+  "engine.credits.17.t": "Sponza test scene (not code): Crytek, Frank Meinl and Marko Dabrovic, from the Khronos glTF Sample Assets. Used under the Cryengine Limited License Agreement.",
+  "engine.credits.18.t": "Toon test character and dance motion (not code): a third-party MMD / PMX model and VMD motion. Used only to test toon shading and physics, and shown in screenshots. It is not part of the engine and not shared. All rights stay with the original authors."
 });

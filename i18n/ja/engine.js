@@ -193,5 +193,6 @@ GTW.i18n.add("ja", {
   "engine.credits.14.t": "cpp-httplib",
   "engine.credits.15.t": "nlohmann/json",
   "engine.credits.16.t": "GoogleTest",
-  "engine.credits.17.t": "Sponzaテストシーン（コードではなくアセット）：Crytek、Frank Meinl、Marko Dabrovic。Khronos glTF Sample Assets経由で、Cryengine Limited License Agreementに基づき使用。"
+  "engine.credits.17.t": "Sponzaテストシーン（コードではなくアセット）：Crytek、Frank Meinl、Marko Dabrovic。Khronos glTF Sample Assets経由で、Cryengine Limited License Agreementに基づき使用。",
+  "engine.credits.18.t": "トゥーンのテスト用キャラクターとダンスモーション（コードではなくアセット）：第三者製のMMD / PMXモデルとVMDモーション。トゥーンシェーディングと物理のテストにのみ使用し、スクリーンショットに掲載しています。エンジンには含まれず、配布もしていません。権利はすべて原作者に帰属します。"
 });
