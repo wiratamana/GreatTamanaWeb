@@ -1,5 +1,12 @@
-/* Japanese texts for bundle "journal".
-   Add the same keys as in i18n/en/journal.js. Missing keys fall back to English.
-   Run: python tools/i18n_check.py  to see what is still missing. */
 GTW.i18n.add("ja", {
+  "journal.title": "R&Dジャーナル：30件のエンジン調査記録",
+  "journal.desc": "すべての調査を「課題・根本原因・修正・結果・未検証の点」の形式で記録。パフォーマンス、アニメーション、レンダリングルック、ツール、ボリュメトリッククラウド。",
+
+  "journal.eyebrow": "R&Dジャーナル",
+  "journal.h1": "数値で裏付けた30件の調査記録",
+  "journal.lead": "エンジンを構築するなかで直面した実際の問題です。2分で概要をつかめるよう、すべて同じ形式（課題、根本原因、修正内容、結果、未検証・制約）でまとめています。",
+  "journal.how.h": "読み方",
+  "journal.how.p": "まずバッジをご覧ください。「エンジンに反映済み」は修正がエンジンに入っているもの、「反映済み（制約あり）」は動作するものの既知の課題が残るもの、「原因特定済み（未修正）」は原因を突き止めた段階でまだ修正を適用していないものです。失敗や未達の目標も意図的にそのまま記録しています。",
+  "journal.search": "タイトル、本文、タグで検索",
+  "journal.empty": "該当するケーススタディがありません。別のキーワードやカテゴリをお試しください。"
 });
