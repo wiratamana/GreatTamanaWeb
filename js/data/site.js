@@ -26,7 +26,7 @@
        public:false  -> the site says "source on request" instead of linking.
        Set public:true only when the repository is really public. */
     repos: {
-      engine: { url: "https://github.com/wiratamana/GreatTamanaEngine", public: false },
+      engine: { url: "https://github.com/wiratamana/GreatTamanaEngine", public: true  },
       app:    { url: "https://github.com/wiratamana/GreatTamanaApp",    public: true  },
       web:    { url: "https://github.com/wiratamana/GreatTamanaWeb",    public: true  }
     },

@@ -24,7 +24,7 @@
   GTW.base = base;
   GTW.page = root.getAttribute("data-page") || "";
 
-  /* ---- language: ?lang=xx  >  saved choice  >  default (en) ---- */
+  /* ---- language: ?lang=xx  >  saved choice  >  browser language (ja -> ja, anything else -> en) ---- */
   var SUPPORTED = ["en", "ja"];
   var lang = "en", saved = null;
   try { saved = localStorage.getItem("gtw.lang"); } catch (e) {}
@@ -34,6 +34,9 @@
     try { localStorage.setItem("gtw.lang", lang); } catch (e) {}
   } else if (saved && SUPPORTED.indexOf(saved) >= 0) {
     lang = saved;
+  } else {
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if (/^ja/i.test(nav)) lang = "ja";   // first visit: follow the browser language
   }
   GTW.lang = lang;
   GTW.langs = SUPPORTED;

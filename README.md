@@ -79,7 +79,7 @@ renders one card per `home.can.1.*`, `home.can.2.*` ... that exists. To add a ca
 
 ## 3. Japanese translation
 
-1. Language switch is in the header (EN / 日本語). The choice is stored in `localStorage`. `?lang=ja` forces it.
+1. First visit: the browser language decides (Japanese browser = Japanese, anything else = English). The switch in the header (EN / 日本語) overrides it and the choice is stored in `localStorage`. `?lang=ja` forces it.
 2. Open `i18n/en/home.js` and `i18n/ja/home.js`. Copy keys you translate into the Japanese file:
    ```js
    GTW.i18n.add("ja", {
