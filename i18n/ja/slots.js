@@ -72,5 +72,9 @@ GTW.i18n.add("ja", {
   "slot.terrain-dusk": "低い太陽が横から差し込む夕暮れの地形シーン",
   "slot.terrain-dusk.hint": "Open Scene：夕暮れの地形。",
   "slot.clouds-sunset-sky": "水平線上の太陽とボリュメトリッククラウド：太陽のグレアと雲の金色の縁",
-  "slot.clouds-sunset-sky.hint": "Open Scene：雲越しの低い太陽。"
+  "slot.clouds-sunset-sky.hint": "Open Scene：雲越しの低い太陽。",
+  "slot.clouds-blue-sky": "濃い青空を背景に下から見上げたボリュメトリッククラウド（昼）",
+  "slot.clouds-blue-sky.hint": "Open Scene：昼の雲を下から見上げた図。",
+  "slot.terrain-golden-hour": "ゴールデンアワーの山：低い太陽が正面、雲の縁が輝き、谷は青くかすむ",
+  "slot.terrain-golden-hour.hint": "Open Scene：ゴールデンアワーの山と雲。"
 });

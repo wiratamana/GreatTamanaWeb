@@ -72,5 +72,9 @@ GTW.i18n.add("en", {
   "slot.terrain-dusk": "Terrain scene at dusk with a low sun from the side",
   "slot.terrain-dusk.hint": "Open Scene: terrain at dusk.",
   "slot.clouds-sunset-sky": "Volumetric clouds with the sun on the horizon: sun glare and golden cloud edges",
-  "slot.clouds-sunset-sky.hint": "Open Scene: low sun through the clouds."
+  "slot.clouds-sunset-sky.hint": "Open Scene: low sun through the clouds.",
+  "slot.clouds-blue-sky": "Volumetric clouds seen from below against a deep blue sky, daylight",
+  "slot.clouds-blue-sky.hint": "Open Scene: clouds from below, day.",
+  "slot.terrain-golden-hour": "Mountain at golden hour: the sun low in front, lit cloud edges, hazy blue valley",
+  "slot.terrain-golden-hour.hint": "Open Scene: mountain and clouds at golden hour."
 });

@@ -10,6 +10,8 @@
 
   GTW.gallery = [
     /* engine demo scenes (Sponza and the terrain + cloud Open Scene), files live in assets/media/ */
+    { slot: "terrain-golden-hour", kind: "image", g: "final" },
+    { slot: "clouds-blue-sky", kind: "image", g: "final" },
     { slot: "terrain-sunset", kind: "image", g: "final" },
     { slot: "clouds-sunset-sky", kind: "image", g: "final" },
     { slot: "terrain-snow-clouds", kind: "image", g: "final" },
