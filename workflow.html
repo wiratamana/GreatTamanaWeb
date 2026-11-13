@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-page="workflow" data-bundles="common,workflow,cases" data-scripts="data/cases,components/case-card,pages/workflow" data-title="workflow.title" data-desc="workflow.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How I work · Wira Tamana</title>
+<meta name="description" content="How I direct AI agents, write specs and verify results with measurements.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><span data-i18n="nav.workflow"></span></nav>
+    <span class="eyebrow" data-i18n="workflow.eyebrow"></span>
+    <h1 data-i18n="workflow.h1"></h1>
+    <p class="lead" data-i18n="workflow.lead"></p>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="stats" style="margin-top:0" data-repeat="workflow.stats" data-tpl="stat"></div>
+
+      <section class="block">
+        <h2 id="roles" data-i18n="workflow.roles.h"></h2>
+        <p data-i18n="workflow.roles.p"></p>
+        <div class="cols2">
+          <div class="card flat"><h3 data-i18n="workflow.roles.me.h"></h3><ul class="ticks" data-repeat="workflow.roles.me" data-tpl="li"></ul></div>
+          <div class="card flat"><h3 data-i18n="workflow.roles.ai.h"></h3><ul class="ticks" data-repeat="workflow.roles.ai" data-tpl="li"></ul></div>
+        </div>
+        <div class="callout lesson"><h4 data-i18n="workflow.roles.note.h"></h4><p data-i18n="workflow.roles.note.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="spec" data-i18n="workflow.spec.h"></h2>
+        <p data-i18n="workflow.spec.p"></p>
+<pre class="code" data-i18n="workflow.spec.code" aria-label="Spec template"></pre>
+        <div class="grid g3" data-repeat="workflow.spec" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="method" data-i18n="workflow.method.h"></h2>
+        <p data-i18n="workflow.method.p"></p>
+        <div class="grid g3" data-repeat="workflow.method" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="premise" data-i18n="workflow.premise.h"></h2>
+        <p data-i18n="workflow.premise.p"></p>
+        <div class="dl" data-repeat="workflow.premise" data-tpl="dl"></div>
+        <div class="grid g3" id="premise-cases"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="failures" data-i18n="workflow.fail.h"></h2>
+        <p data-i18n="workflow.fail.p"></p>
+        <div class="dl" data-repeat="workflow.fail" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="parallel" data-i18n="workflow.par.h"></h2>
+        <p data-i18n="workflow.par.p"></p>
+        <div class="flow" data-repeat="workflow.par" data-tpl="step"></div>
+        <div class="callout good"><h4 data-i18n="workflow.par.note.h"></h4><p data-i18n="workflow.par.note.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="honesty" data-i18n="workflow.honest.h"></h2>
+        <div class="callout honest"><h4 data-i18n="workflow.honest.ch"></h4><p data-i18n="workflow.honest.p1"></p><p data-i18n="workflow.honest.p2"></p></div>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

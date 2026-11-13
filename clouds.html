@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-page="clouds" data-bundles="common,clouds,cases" data-scripts="data/cases,components/case-card,pages/clouds" data-title="clouds.title" data-desc="clouds.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volumetric clouds · Wira Tamana</title>
+<meta name="description" content="Real-time volumetric cloud renderer in a custom Vulkan engine.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="engine.html" data-i18n="nav.engine"></a><span class="sep">/</span><span data-i18n="nav.engine.clouds"></span></nav>
+    <span class="eyebrow" data-i18n="clouds.eyebrow"></span>
+    <h1 data-i18n="clouds.h1"></h1>
+    <p class="lead" data-i18n="clouds.lead"></p>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <figure data-img="cloud-hero" data-cap="clouds.fig.hero"></figure>
+      <div class="fig-grid">
+        <figure data-img="cloud-final-s1" data-thumb data-cap="clouds.fig.s1"></figure>
+        <figure data-img="cloud-final-s3" data-thumb data-cap="clouds.fig.s3"></figure>
+      </div>
+      <figure data-slot="demo-clouds-flythrough" data-kind="video" data-cap="clouds.fig.video"></figure>
+
+      <section class="block">
+        <h2 id="goal" data-i18n="clouds.goal.h"></h2>
+        <p data-i18n="clouds.goal.p"></p>
+        <div class="grid g3" data-repeat="clouds.rules" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="pipeline" data-i18n="clouds.pipe.h"></h2>
+        <p data-i18n="clouds.pipe.p"></p>
+        <div class="flow" data-repeat="clouds.pipe" data-tpl="step"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="numbers" data-i18n="clouds.num.h"></h2>
+        <p data-i18n="clouds.num.p"></p>
+        <div class="metrics" data-repeat="clouds.num" data-tpl="metric"></div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="clouds.cost.th1"></th><th class="num" data-i18n="clouds.cost.th2"></th><th class="num" data-i18n="clouds.cost.th3"></th><th class="num" data-i18n="clouds.cost.th4"></th><th class="num" data-i18n="clouds.cost.th5"></th></tr></thead>
+          <tbody data-repeat="clouds.cost" data-tpl="tr"></tbody>
+        </table></div>
+        <div class="callout honest"><h4 data-i18n="clouds.cost.honest.h"></h4><p data-i18n="clouds.cost.honest.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="story" data-i18n="clouds.story.h"></h2>
+        <p data-i18n="clouds.story.p"></p>
+        <div class="grid g3" id="cloud-cases"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="bugs" data-i18n="clouds.bugs.h"></h2>
+        <p data-i18n="clouds.bugs.p"></p>
+        <div class="dl" data-repeat="clouds.bugs" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="status" data-i18n="clouds.status.h"></h2>
+        <div class="callout honest"><h4 data-i18n="clouds.status.ch"></h4><ul class="ticks part" data-repeat="clouds.status" data-tpl="li"></ul></div>
+      </section>
+
+      <section class="block">
+        <h2 id="refs" data-i18n="clouds.refs.h"></h2>
+        <p data-i18n="clouds.refs.p"></p>
+        <ul class="ticks" data-repeat="clouds.refs" data-tpl="li"></ul>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

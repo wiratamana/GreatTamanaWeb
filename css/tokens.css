@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Design tokens. Change the look of the whole site here.
+   Style: dark, technical, engine-editor feel. ONE accent colour.
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* surfaces (charcoal) */
+  --bg:        #0d1014;
+  --bg-2:      #11151b;
+  --surface:   #161b22;
+  --surface-2: #1b222b;
+  --surface-3: #232d39;
+  --line:      #28313d;
+  --line-2:    #384455;
+
+  /* text */
+  --text:   #e7eaf0;
+  --text-2: #aab3c0;
+  --text-3: #7e8998;
+
+  /* the one accent */
+  --accent:      #4db2ff;
+  --accent-2:    #7cc7ff;
+  --accent-ink:  #04121f;
+  --accent-soft: rgba(77, 178, 255, .12);
+  --accent-line: rgba(77, 178, 255, .38);
+
+  /* semantic (only for status and before/after) */
+  --good: #46d39a;
+  --warn: #f0b44c;
+  --bad:  #f06a6a;
+
+  /* shape */
+  --r-s: 6px;
+  --r:   10px;
+  --r-l: 16px;
+  --shadow: 0 10px 34px rgba(0, 0, 0, .38);
+
+  /* layout */
+  --maxw: 1180px;
+  --maxw-text: 760px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 62px;
+
+  /* type */
+  --font: "Inter", "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", system-ui, -apple-system, sans-serif;
+  --mono: "Cascadia Code", "JetBrains Mono", "SF Mono", Consolas, "Courier New", monospace;
+  --fs-s:  .85rem;
+  --fs:    1rem;
+  --fs-l:  1.125rem;
+  --fs-h3: 1.15rem;
+  --fs-h2: clamp(1.45rem, 2.6vw, 1.9rem);
+  --fs-h1: clamp(2rem, 5vw, 3.3rem);
+  --lh: 1.65;
+}

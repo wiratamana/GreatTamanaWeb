@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-page="app" data-bundles="common,app" data-scripts="data/apptools,pages/app" data-title="app.title" data-desc="app.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GreatTamanaApp · Wira Tamana</title>
+<meta name="description" content="Desktop AI agent app in C# and Avalonia with 173 tools and parallel sub-agents.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><span data-i18n="nav.app"></span></nav>
+    <span class="eyebrow" data-i18n="app.eyebrow"></span>
+    <h1 data-i18n="app.h1"></h1>
+    <p class="lead" data-i18n="app.lead"></p>
+    <div class="row" style="margin-top:1.2rem"><span data-repo="app"></span></div>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="stats" style="margin-top:0" data-repeat="app.stats" data-tpl="stat"></div>
+      <figure data-slot="app-chat-main" data-kind="image" data-cap="app.fig.main"></figure>
+      <div class="fig-grid">
+        <figure data-slot="app-tool-cards" data-kind="image" data-cap="app.fig.cards"></figure>
+        <figure data-slot="app-subagents" data-kind="image" data-cap="app.fig.sub"></figure>
+      </div>
+
+      <section class="block">
+        <h2 id="what" data-i18n="app.what.h"></h2>
+        <p data-i18n="app.what.p"></p>
+        <div class="dl" data-repeat="app.facts" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="loop" data-i18n="app.loop.h"></h2>
+        <p data-i18n="app.loop.p"></p>
+        <div class="flow" data-repeat="app.loop" data-tpl="step"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="problems" data-i18n="app.prob.h"></h2>
+        <p data-i18n="app.prob.p"></p>
+        <div class="grid g3" data-repeat="app.prob" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="engine-loop" data-i18n="app.eng.h"></h2>
+        <p data-i18n="app.eng.p"></p>
+        <div class="flow" data-repeat="app.eng" data-tpl="step"></div>
+        <div class="fig-grid">
+          <figure data-slot="app-engine-bridge" data-kind="image" data-cap="app.fig.bridge"></figure>
+          <figure data-slot="demo-agent-visual-debug" data-kind="video" data-cap="app.fig.demo"></figure>
+        </div>
+        <div class="callout lesson"><h4 data-i18n="app.eng.note.h"></h4><p data-i18n="app.eng.note.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="tools" data-i18n="app.tools.h"></h2>
+        <p><span data-i18n="app.tools.p1"></span> <b class="mono" id="tool-total"></b> <span data-i18n="app.tools.p2"></span></p>
+        <div class="callout lesson"><h4 data-i18n="app.tools.lazy.h"></h4><p data-i18n="app.tools.lazy.p"></p></div>
+        <div id="tool-inv"></div>
+        <figure data-slot="app-tool-picker" data-kind="image" data-cap="app.fig.picker"></figure>
+      </section>
+
+      <section class="block">
+        <h2 id="arch" data-i18n="app.arch.h"></h2>
+        <p data-i18n="app.arch.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="app.arch.th1"></th><th data-i18n="app.arch.th2"></th><th class="num" data-i18n="app.arch.th3"></th></tr></thead>
+          <tbody data-repeat="app.arch" data-tpl="tr"></tbody>
+        </table></div>
+        <figure data-slot="app-task-builder" data-kind="image" data-cap="app.fig.task"></figure>
+      </section>
+
+      <section class="block">
+        <h2 id="limits" data-i18n="app.limits.h"></h2>
+        <div class="callout honest"><h4 data-i18n="app.limits.ch"></h4><ul class="ticks no" data-repeat="app.limits" data-tpl="li"></ul></div>
+        <div class="callout good"><h4 data-i18n="app.priv.h"></h4><p data-i18n="app.priv.p"></p></div>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

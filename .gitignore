@@ -1,0 +1,6 @@
+# originals and work files, not published
+assets/src/
+assets/drop-in/
+__pycache__/
+*.pyc
+i18n/ja/*.todo.txt

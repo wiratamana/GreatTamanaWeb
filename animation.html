@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-page="animation" data-bundles="common,animation,cases" data-scripts="data/cases,components/case-card,pages/animation" data-title="animation.title" data-desc="animation.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animation &amp; physics · Wira Tamana</title>
+<meta name="description" content="MMD characters, IK, SIMD skinning, hair and skirt physics and toon shading in a custom engine.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="engine.html" data-i18n="nav.engine"></a><span class="sep">/</span><span data-i18n="nav.engine.animation"></span></nav>
+    <span class="eyebrow" data-i18n="animation.eyebrow"></span>
+    <h1 data-i18n="animation.h1"></h1>
+    <p class="lead" data-i18n="animation.lead"></p>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="stats" style="margin-top:0" data-repeat="animation.stats" data-tpl="stat"></div>
+      <div class="fig-grid">
+        <figure data-img="phys-bone-viewer" data-cap="animation.fig.bone"></figure>
+        <figure data-slot="engine-toon-character" data-kind="image" data-cap="animation.fig.toon"></figure>
+      </div>
+
+      <section class="block">
+        <h2 id="pipeline" data-i18n="animation.pipe.h"></h2>
+        <p data-i18n="animation.pipe.p"></p>
+        <div class="flow" data-repeat="animation.pipe" data-tpl="step"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="import" data-i18n="animation.imp.h"></h2>
+        <p data-i18n="animation.imp.p"></p>
+        <div class="dl" data-repeat="animation.imp" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="skinning" data-i18n="animation.skin.h"></h2>
+        <p data-i18n="animation.skin.p"></p>
+        <div class="bars" data-bars="animation.skin.bars"></div>
+        <div class="callout lesson"><h4 data-i18n="animation.skin.lesson.h"></h4><p data-i18n="animation.skin.lesson.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="physics" data-i18n="animation.phys.h"></h2>
+        <p data-i18n="animation.phys.p"></p>
+        <div class="grid g3" data-repeat="animation.phys" data-tpl="card"></div>
+        <div class="fig-grid">
+          <figure data-img="phys-bug-editor" data-cap="animation.phys.fig1"></figure>
+          <figure data-img="phys-bug-colliders" data-cap="animation.phys.fig2"></figure>
+        </div>
+        <figure data-slot="demo-physics-loop" data-kind="webp" data-cap="animation.phys.fig3"></figure>
+      </section>
+
+      <section class="block">
+        <h2 id="toon" data-i18n="animation.toon.h"></h2>
+        <p data-i18n="animation.toon.p"></p>
+        <ul class="ticks" data-repeat="animation.toon" data-tpl="li"></ul>
+      </section>
+
+      <section class="block">
+        <h2 id="cases" data-i18n="animation.cases.h"></h2>
+        <div class="grid g3" id="anim-cases"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="limits" data-i18n="animation.limits.h"></h2>
+        <div class="callout honest"><h4 data-i18n="animation.limits.ch"></h4><ul class="ticks no" data-repeat="animation.limits" data-tpl="li"></ul></div>
+        <p class="dim"><small data-i18n="animation.credit"></small></p>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

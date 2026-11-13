@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-page="engine" data-bundles="common,engine" data-scripts="" data-title="engine.title" data-desc="engine.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GreatTamanaEngine · Wira Tamana</title>
+<meta name="description" content="Vulkan 1.3 game engine and editor in C++20.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><span data-i18n="nav.engine"></span></nav>
+    <span class="eyebrow" data-i18n="engine.eyebrow"></span>
+    <h1 data-i18n="engine.h1"></h1>
+    <p class="lead" data-i18n="engine.lead"></p>
+    <div class="row sp-t" style="margin-top:1.2rem"><span data-repo="engine"></span>
+      <a class="btn ghost" href="rendering.html" data-i18n="nav.engine.rendering"></a>
+      <a class="btn ghost" href="animation.html" data-i18n="nav.engine.animation"></a>
+      <a class="btn ghost" href="tools.html" data-i18n="nav.engine.tools"></a></div>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="stats" style="margin-top:0" data-repeat="engine.stats" data-tpl="stat"></div>
+      <figure data-slot="editor-overview" data-kind="image" data-cap="engine.fig.editor"></figure>
+
+      <section class="block">
+        <h2 id="what" data-i18n="engine.what.h"></h2>
+        <p data-i18n="engine.what.p1"></p>
+        <p data-i18n="engine.what.p2"></p>
+        <div class="dl" data-repeat="engine.facts" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="arch" data-i18n="engine.arch.h"></h2>
+        <p data-i18n="engine.arch.p"></p>
+        <div class="layers" data-repeat="engine.layers" data-tpl="layer"></div>
+        <div class="callout lesson"><h4 data-i18n="engine.arch.note.h"></h4><p data-i18n="engine.arch.note.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="rules" data-i18n="engine.rules.h"></h2>
+        <p data-i18n="engine.rules.p"></p>
+        <div class="grid g3" data-repeat="engine.rules" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="frame" data-i18n="engine.frame.h"></h2>
+        <p data-i18n="engine.frame.p"></p>
+        <div class="flow" data-repeat="engine.frame" data-tpl="step"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="subsystems" data-i18n="engine.sub.h"></h2>
+        <p data-i18n="engine.sub.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="engine.sub.th1"></th><th data-i18n="engine.sub.th2"></th><th class="num" data-i18n="engine.sub.th3"></th></tr></thead>
+          <tbody data-repeat="engine.sub" data-tpl="tr"></tbody>
+        </table></div>
+        <div class="metrics" data-repeat="engine.numbers" data-tpl="metric"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="pace" data-i18n="engine.pace.h"></h2>
+        <p data-i18n="engine.pace.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="engine.pace.th1"></th><th class="num" data-i18n="engine.pace.th2"></th></tr></thead>
+          <tbody data-repeat="engine.pace" data-tpl="tr"></tbody>
+        </table></div>
+      </section>
+
+      <section class="block">
+        <h2 id="limits" data-i18n="engine.limits.h"></h2>
+        <div class="callout honest"><h4 data-i18n="engine.limits.callout.h"></h4><p data-i18n="engine.limits.callout.p"></p></div>
+        <div class="cols2">
+          <div><h3 data-i18n="engine.limits.a.h"></h3><ul class="ticks no" data-repeat="engine.limits.a" data-tpl="li"></ul></div>
+          <div><h3 data-i18n="engine.limits.b.h"></h3><ul class="ticks part" data-repeat="engine.limits.b" data-tpl="li"></ul></div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2 id="credits" data-i18n="engine.credits.h"></h2>
+        <p data-i18n="engine.credits.p"></p>
+        <ul class="chips" data-repeat="engine.credits" data-tpl="chip"></ul>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

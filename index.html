@@ -1,27 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="home" data-bundles="common,home,cases" data-scripts="data/cases,components/case-card,pages/home" data-title="home.title" data-desc="home.desc">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Great Tamana Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 1.2rem;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wira Tamana · Graphics &amp; Engine Programmer</title>
+<meta name="description" content="Portfolio of Wira Tamana: Vulkan game engine, AI agent app and R&amp;D journal.">
+<meta name="theme-color" content="#0d1014">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wira Tamana · Graphics &amp; Engine Programmer">
+<meta property="og:image" content="assets/img/cloud-hero.webp">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
 </head>
 <body>
-    <h1>Welcome to Great Tamana Web!</h1>
-    <p>My GitHub Pages site is officially live.</p>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg"><img src="assets/img/cloud-hero.webp" alt=""></div>
+    <div class="wrap hero-inner">
+      <span class="tagline" data-i18n="home.hero.tag"></span>
+      <h1 data-i18n="home.hero.h1"></h1>
+      <p class="lead" data-i18n="home.hero.lead"></p>
+      <div class="hero-cta">
+        <a class="btn primary" href="engine.html" data-i18n="home.hero.cta1"></a>
+        <a class="btn" href="journal.html" data-i18n="home.hero.cta2"></a>
+        <a class="btn ghost" href="about.html#contact" data-i18n="home.hero.cta3"></a>
+      </div>
+      <div class="stats" data-repeat="home.stats" data-tpl="stat"></div>
+      <p class="dim" style="margin:.7rem 0 0"><small data-i18n="home.stats.note"></small></p>
+    </div>
+  </section>
+
+  <!-- ===== WHAT I CAN DO ===== -->
+  <section class="section" id="can">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="home.can.eyebrow"></span>
+        <h2 data-i18n="home.can.h"></h2>
+        <p data-i18n="home.can.sub"></p>
+      </div>
+      <div class="grid g3" data-repeat="home.can" data-tpl="card"></div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT I MADE ===== -->
+  <section class="section alt" id="made">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="home.made.eyebrow"></span>
+        <h2 data-i18n="home.made.h"></h2>
+        <p data-i18n="home.made.sub"></p>
+      </div>
+      <div class="grid g3">
+        <a class="card proj" href="engine.html">
+          <div class="thumb"><img src="assets/img/thumb/cloud-final-s3.webp" alt="" loading="lazy"></div>
+          <div class="body">
+            <span class="meta" data-i18n="home.made.1.meta"></span>
+            <h3 data-i18n="home.made.1.t"></h3>
+            <p data-i18n="home.made.1.d"></p>
+            <span class="more" data-i18n="ui.more"></span>
+          </div>
+        </a>
+        <a class="card proj" href="app.html">
+          <div class="thumb"><figure data-slot="app-chat-main" data-kind="image"></figure></div>
+          <div class="body">
+            <span class="meta" data-i18n="home.made.2.meta"></span>
+            <h3 data-i18n="home.made.2.t"></h3>
+            <p data-i18n="home.made.2.d"></p>
+            <span class="more" data-i18n="ui.more"></span>
+          </div>
+        </a>
+        <a class="card proj" href="journal.html">
+          <div class="thumb"><img src="assets/img/thumb/cloud-shafts-sheet.webp" alt="" loading="lazy"></div>
+          <div class="body">
+            <span class="meta" data-i18n="home.made.3.meta"></span>
+            <h3 data-i18n="home.made.3.t"></h3>
+            <p data-i18n="home.made.3.d"></p>
+            <span class="more" data-i18n="ui.more"></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROOF ===== -->
+  <section class="section" id="proof">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="home.feat.eyebrow"></span>
+        <h2 data-i18n="home.feat.h"></h2>
+        <p data-i18n="home.feat.sub"></p>
+      </div>
+      <div class="grid g3" id="feat-cases"></div>
+      <p class="sp-t"><a class="btn" href="journal.html" data-i18n="home.feat.all"></a></p>
+      <p class="dim"><small data-i18n="note.hw.short"></small></p>
+    </div>
+  </section>
+
+  <!-- ===== CLOUDS ===== -->
+  <section class="section alt" id="clouds">
+    <div class="wrap cols2" style="align-items:center">
+      <div>
+        <span class="eyebrow" data-i18n="home.cloud.eyebrow"></span>
+        <h2 data-i18n="home.cloud.h"></h2>
+        <p class="muted" data-i18n="home.cloud.p1"></p>
+        <p class="muted" data-i18n="home.cloud.p2"></p>
+        <p><a class="btn primary" href="clouds.html" data-i18n="home.cloud.cta"></a></p>
+      </div>
+      <figure data-img="cloud-hero" data-cap="home.cloud.cap"></figure>
+    </div>
+  </section>
+
+  <!-- ===== HOW I WORK ===== -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="home.how.eyebrow"></span>
+        <h2 data-i18n="home.how.h"></h2>
+        <p data-i18n="home.how.sub"></p>
+      </div>
+      <div class="flow" data-repeat="home.how" data-tpl="step"></div>
+      <p><a href="workflow.html" data-i18n="home.how.more"></a></p>
+    </div>
+  </section>
+
+  <!-- ===== HONEST LIMITS + STACK ===== -->
+  <section class="section alt" id="honest">
+    <div class="wrap cols2">
+      <div>
+        <h2 data-i18n="home.limits.h"></h2>
+        <p class="muted" data-i18n="home.limits.sub"></p>
+        <ul class="ticks part" data-repeat="home.limits" data-tpl="li"></ul>
+      </div>
+      <div>
+        <h2 data-i18n="home.stack.h"></h2>
+        <p class="muted" data-i18n="home.stack.sub"></p>
+        <ul class="chips" data-repeat="home.stack" data-tpl="chip"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <h2 data-i18n="home.contact.h"></h2>
+        <p class="lead" data-i18n="home.contact.p"></p>
+        <ul class="contact-list" data-contact></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
 </body>
 </html>

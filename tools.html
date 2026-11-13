@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-page="tools" data-bundles="common,tools,cases" data-scripts="data/cases,components/case-card,pages/tools" data-title="tools.title" data-desc="tools.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor &amp; tools · Wira Tamana</title>
+<meta name="description" content="Editor, profiler, frame debugger, HTTP debug server, hot reload and test suite of GreatTamanaEngine.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="engine.html" data-i18n="nav.engine"></a><span class="sep">/</span><span data-i18n="nav.engine.tools"></span></nav>
+    <span class="eyebrow" data-i18n="tools.eyebrow"></span>
+    <h1 data-i18n="tools.h1"></h1>
+    <p class="lead" data-i18n="tools.lead"></p>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="stats" style="margin-top:0" data-repeat="tools.stats" data-tpl="stat"></div>
+      <div class="fig-grid">
+        <figure data-slot="editor-frame-debugger" data-kind="image" data-cap="tools.fig.fd"></figure>
+        <figure data-slot="editor-profiler" data-kind="image" data-cap="tools.fig.prof"></figure>
+      </div>
+
+      <section class="block">
+        <h2 id="editor" data-i18n="tools.editor.h"></h2>
+        <p data-i18n="tools.editor.p"></p>
+        <div class="dl" data-repeat="tools.editor" data-tpl="dl"></div>
+        <figure data-slot="editor-cluster-viewer" data-kind="image" data-cap="tools.fig.cluster"></figure>
+      </section>
+
+      <section class="block">
+        <h2 id="http" data-i18n="tools.http.h"></h2>
+        <p data-i18n="tools.http.p"></p>
+        <div class="flow" data-repeat="tools.http.flow" data-tpl="step"></div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="tools.http.th1"></th><th data-i18n="tools.http.th2"></th></tr></thead>
+          <tbody data-repeat="tools.http" data-tpl="tr"></tbody>
+        </table></div>
+        <div class="callout lesson"><h4 data-i18n="tools.http.why.h"></h4><p data-i18n="tools.http.why.p"></p></div>
+        <div class="callout honest"><h4 data-i18n="tools.http.honest.h"></h4><p data-i18n="tools.http.honest.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="profiler" data-i18n="tools.prof.h"></h2>
+        <p data-i18n="tools.prof.p"></p>
+        <div class="grid g3" data-repeat="tools.prof" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="hotreload" data-i18n="tools.hot.h"></h2>
+        <p data-i18n="tools.hot.p"></p>
+        <div class="flow" data-repeat="tools.hot" data-tpl="step"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="testing" data-i18n="tools.test.h"></h2>
+        <p data-i18n="tools.test.p"></p>
+        <div class="metrics" data-repeat="tools.test.m" data-tpl="metric"></div>
+        <div class="cols2">
+          <div>
+            <h3 data-i18n="tools.test.areas.h"></h3>
+            <div class="table-wrap"><table class="tbl">
+              <thead><tr><th data-i18n="tools.test.th1"></th><th class="num" data-i18n="tools.test.th2"></th></tr></thead>
+              <tbody data-repeat="tools.test.areas" data-tpl="tr"></tbody>
+            </table></div>
+          </div>
+          <div>
+            <h3 data-i18n="tools.test.guards.h"></h3>
+            <p class="muted" data-i18n="tools.test.guards.p"></p>
+            <ul class="chips" data-repeat="tools.test.guards" data-tpl="chip"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2 id="bench" data-i18n="tools.bench.h"></h2>
+        <p data-i18n="tools.bench.p"></p>
+        <div class="dl" data-repeat="tools.bench" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="cases" data-i18n="tools.cases.h"></h2>
+        <div class="grid g3" id="tool-cases"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="limits" data-i18n="tools.limits.h"></h2>
+        <div class="callout honest"><h4 data-i18n="tools.limits.ch"></h4><ul class="ticks no" data-repeat="tools.limits" data-tpl="li"></ul></div>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

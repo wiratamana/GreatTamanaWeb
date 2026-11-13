@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-page="rendering" data-bundles="common,rendering,cases" data-scripts="data/cases,components/case-card,pages/rendering" data-title="rendering.title" data-desc="rendering.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rendering · Wira Tamana</title>
+<meta name="description" content="Render features of GreatTamanaEngine.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="engine.html" data-i18n="nav.engine"></a><span class="sep">/</span><span data-i18n="nav.engine.rendering"></span></nav>
+    <span class="eyebrow" data-i18n="rendering.eyebrow"></span>
+    <h1 data-i18n="rendering.h1"></h1>
+    <p class="lead" data-i18n="rendering.lead"></p>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="stats" style="margin-top:0" data-repeat="rendering.stats" data-tpl="stat"></div>
+      <div class="grid g2">
+        <figure data-img="cloud-hero" data-cap="rendering.fig1"></figure>
+        <figure data-img="cloud-final-sunset" data-cap="rendering.fig2"></figure>
+      </div>
+
+      <section class="block">
+        <h2 id="features" data-i18n="rendering.features.h"></h2>
+        <p data-i18n="rendering.features.p"></p>
+        <div class="grid g3" data-repeat="rendering.f" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="gpu-driven" data-i18n="rendering.gpu.h"></h2>
+        <p data-i18n="rendering.gpu.p"></p>
+        <div class="flow" data-repeat="rendering.gpu.flow" data-tpl="step"></div>
+        <div class="dl" data-repeat="rendering.gpu.facts" data-tpl="dl"></div>
+        <figure data-slot="engine-hiz-demo" data-kind="image" data-cap="rendering.gpu.fig"></figure>
+        <h3 data-i18n="rendering.related"></h3>
+        <div class="grid g3" id="rel-gpu"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="render-graph" data-i18n="rendering.rg.h"></h2>
+        <p data-i18n="rendering.rg.p"></p>
+        <div class="flow" data-repeat="rendering.rg.flow" data-tpl="step"></div>
+        <div class="dl" data-repeat="rendering.rg.facts" data-tpl="dl"></div>
+        <div class="callout honest"><h4 data-i18n="rendering.rg.honest.h"></h4><p data-i18n="rendering.rg.honest.p"></p></div>
+        <figure data-slot="editor-render-graph" data-kind="image" data-cap="rendering.rg.fig"></figure>
+      </section>
+
+      <section class="block">
+        <h2 id="order" data-i18n="rendering.order.h"></h2>
+        <p data-i18n="rendering.order.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="rendering.order.th1"></th><th class="num" data-i18n="rendering.order.th2"></th><th data-i18n="rendering.order.th3"></th></tr></thead>
+          <tbody data-repeat="rendering.order" data-tpl="tr"></tbody>
+        </table></div>
+      </section>
+
+      <section class="block">
+        <h2 id="shaders" data-i18n="rendering.sh.h"></h2>
+        <p data-i18n="rendering.sh.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="rendering.sh.th1"></th><th data-i18n="rendering.sh.th2"></th><th class="num" data-i18n="rendering.sh.th3"></th></tr></thead>
+          <tbody data-repeat="rendering.sh" data-tpl="tr"></tbody>
+        </table></div>
+      </section>
+
+      <section class="block">
+        <h2 id="verify" data-i18n="rendering.verify.h"></h2>
+        <p data-i18n="rendering.verify.p"></p>
+        <div class="grid g3" data-repeat="rendering.verify" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="limits" data-i18n="rendering.limits.h"></h2>
+        <div class="callout honest"><h4 data-i18n="rendering.limits.ch"></h4><ul class="ticks part" data-repeat="rendering.limits" data-tpl="li"></ul></div>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

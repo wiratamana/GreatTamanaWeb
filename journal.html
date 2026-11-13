@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-page="journal" data-bundles="common,journal,cases" data-scripts="data/cases,components/case-card,pages/journal" data-title="journal.title" data-desc="journal.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R&amp;D Journal · Wira Tamana</title>
+<meta name="description" content="30 engine investigations: problem, root cause, fix, result and what was not proven.">
+<meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><span data-i18n="nav.journal"></span></nav>
+    <span class="eyebrow" data-i18n="journal.eyebrow"></span>
+    <h1 data-i18n="journal.h1"></h1>
+    <p class="lead" data-i18n="journal.lead"></p>
+  </div></header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="callout lesson" style="margin-top:0"><h4 data-i18n="journal.how.h"></h4><p data-i18n="journal.how.p"></p></div>
+      <div class="filters" id="filters"></div>
+      <div class="grid g3" id="case-grid"></div>
+      <div class="empty" id="case-empty" style="display:none" data-i18n="journal.empty"></div>
+      <p class="dim sp-t"><small data-i18n="case.hw"></small></p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>
