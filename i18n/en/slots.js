@@ -12,14 +12,16 @@ GTW.i18n.add("en", {
   "slot.app-engine-bridge": "App to engine bridge",
   "slot.app-engine-bridge.hint": "A gte_send_request tool card returning a rendered engine frame inside the chat.",
 
-  "slot.demo-agent-visual-debug": "Demo: the agent debugs by looking at frames",
-  "slot.demo-agent-visual-debug.hint": "Screen recording, 60 to 120 seconds, MP4: the agent builds the engine, captures a frame, reads the profiler and fixes a rendering problem.",
   "slot.demo-editor-tour": "Demo: editor tour",
   "slot.demo-editor-tour.hint": "Screen recording, MP4: hierarchy, scene view, profiler, frame debugger, render graph, hot reload.",
   "slot.demo-clouds-flythrough": "Demo: cloud fly-through",
   "slot.demo-clouds-flythrough.hint": "Screen recording, MP4: camera moves through the clouds from day to sunset with shadows and light shafts.",
   "slot.demo-physics-loop": "Demo: skirt and hair physics",
   "slot.demo-physics-loop.hint": "Short animated WebP loop (3 to 6 seconds) of the dancing character with the fixed physics.",
+  "slot.pl9-wind-loop": "Oak stand in wind: 8 real engine frames, played forward and back. Only the trees move.",
+  "slot.pl9-wind-loop.hint": "Animated WebP, 960 px wide, 14 frames at 125 ms. Capture: the wind sequence tool takes 8 frames of an oak stand, 0.125 s apart, with wind strength 1 and gustiness 0.8. The frames are played forward and back (ping-pong) for a seamless loop. The grass is not moving in this capture.",
+  "slot.pl9-wind-loop-sakura": "Sakura row in wind, same method. The motion is small: it looks almost still at first glance.",
+  "slot.pl9-wind-loop-sakura.hint": "Animated WebP, 960 px wide, 14 frames at 125 ms. Same capture method as the oak loop (8 frames, ping-pong). Sakura moves much less than oak, so the loop looks nearly still.",
 
   "slot.editor-overview": "Editor overview",
   "slot.editor-overview.hint": "Full editor window: hierarchy, scene view, game view, inspector and bottom panels, with a scene that looks good.",

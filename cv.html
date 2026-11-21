@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-page="cv" data-bundles="common,cv" data-scripts="data/cases,pages/cv" data-title="cv.title" data-desc="cv.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--seo:begin-->
+<title>CV · Wira Tamana</title>
+<meta name="description" content="CV of Wira Tamana, built only from the facts on this site. Print it or save it as PDF.">
+<meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/cv.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/cv.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/cv.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/cv.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="CV · Wira Tamana">
+<meta property="og:description" content="CV of Wira Tamana, built only from the facts on this site. Print it or save it as PDF.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/cv.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A landscape rendered in my own Vulkan engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CV · Wira Tamana">
+<meta name="twitter:description" content="CV of Wira Tamana, built only from the facts on this site. Print it or save it as PDF.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta name="twitter:image:alt" content="A landscape rendered in my own Vulkan engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs no-print" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="about.html" data-i18n="nav.about"></a><span class="sep">/</span><span data-i18n="cv.title"></span></nav>
+    <span class="eyebrow" data-i18n="cv.eyebrow"></span>
+    <h1 data-i18n="cv.h1"></h1>
+    <p class="lead" data-i18n="cv.lead"></p>
+    <ul class="contact-list" data-contact></ul>
+    <div class="row sp-t no-print">
+      <button class="btn primary" type="button" data-print data-i18n="cv.print"></button>
+      <a class="btn" href="index.html" data-i18n="cv.more"></a>
+      <span class="dim"><small data-i18n="cv.hint"></small></span>
+    </div>
+    <div class="metrics" data-repeat="cv.stats" data-tpl="metric"></div>
+    <p class="dim"><small data-i18n="cv.stats.note"></small></p>
+  </div></header>
+
+  <section class="section"><div class="wrap">
+
+    <h2 data-i18n="cv.sum.h"></h2>
+    <ul class="ticks" data-repeat="cv.sum" data-tpl="li"></ul>
+
+    <h2 class="sp-t" data-i18n="cv.proj.h"></h2>
+    <div class="dl" data-repeat="cv.proj" data-tpl="dl"></div>
+
+    <div class="cols2 sp-t">
+      <div>
+        <h2 data-i18n="cv.skills.h"></h2>
+        <ul class="chips" data-repeat="cv.skills" data-tpl="chip"></ul>
+      </div>
+      <div>
+        <h2 data-i18n="cv.limits.h"></h2>
+        <ul class="ticks part" data-repeat="cv.limits" data-tpl="li"></ul>
+      </div>
+    </div>
+
+    <h2 class="sp-t" data-i18n="cv.time.h"></h2>
+    <div class="dl" data-repeat="cv.time" data-tpl="dl"></div>
+
+  </div></section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

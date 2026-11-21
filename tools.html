@@ -3,10 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Editor &amp; tools · Wira Tamana</title>
-<meta name="description" content="Editor, profiler, frame debugger, HTTP debug server, hot reload and test suite of GreatTamanaEngine.">
+<!--seo:begin-->
+<title>Editor &amp; tools: frame debugger, profiler, HTTP debug server, hot reload · Wira Tamana</title>
+<meta name="description" content="The editor and developer tools of GreatTamanaEngine: Frame Debugger, Render Graph viewer, profiler, HTTP debug server with image capture, DLL hot reload and a 5,400 case test suite.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/tools.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/tools.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/tools.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/tools.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="Editor &amp; tools: frame debugger, profiler, HTTP debug server, hot reload · Wira Tamana">
+<meta property="og:description" content="The editor and developer tools of GreatTamanaEngine: Frame Debugger, Render Graph viewer, profiler, HTTP debug server with image capture, DLL hot reload and a 5,400 case test suite.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/tools.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/editor-overview.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="The editor of my own game engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Editor &amp; tools: frame debugger, profiler, HTTP debug server, hot reload · Wira Tamana">
+<meta name="twitter:description" content="The editor and developer tools of GreatTamanaEngine: Frame Debugger, Render Graph viewer, profiler, HTTP debug server with image capture, DLL hot reload and a 5,400 case test suite.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/editor-overview.webp">
+<meta name="twitter:image:alt" content="The editor of my own game engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -15,7 +39,23 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
   <header class="page-head"><div class="wrap">
@@ -23,6 +63,7 @@
     <span class="eyebrow" data-i18n="tools.eyebrow"></span>
     <h1 data-i18n="tools.h1"></h1>
     <p class="lead" data-i18n="tools.lead"></p>
+    <div class="row sp-t" style="margin-top:1.2rem"><a class="btn" href="world.html" data-i18n="nav.world"></a></div>
   </div></header>
 
   <div class="section"><div class="wrap"><div class="page-grid">
@@ -40,6 +81,10 @@
         <p data-i18n="tools.editor.p"></p>
         <div class="dl" data-repeat="tools.editor" data-tpl="dl"></div>
         <figure data-slot="editor-cluster-viewer" data-kind="image" data-cap="tools.fig.cluster"></figure>
+        <div class="grid g2" style="align-items:start">
+          <figure data-img="pl4-water-editor" data-cap="tools.fig.water"></figure>
+          <figure data-img="pl4-terrain-lod-map" data-cap="tools.fig.lodmap"></figure>
+        </div>
       </section>
 
       <section class="block">
@@ -90,6 +135,23 @@
         <h2 id="bench" data-i18n="tools.bench.h"></h2>
         <p data-i18n="tools.bench.p"></p>
         <div class="dl" data-repeat="tools.bench" data-tpl="dl"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="world-tools" data-i18n="tools.world.h"></h2>
+        <p data-i18n="tools.world.p"></p>
+        <div class="dl" data-repeat="tools.world" data-tpl="dl"></div>
+        <p><a class="btn" href="world.html" data-i18n="nav.world"></a></p>
+      </section>
+
+      <section class="block">
+        <h2 id="validation" data-i18n="tools.val.h"></h2>
+        <p data-i18n="tools.val.p"></p>
+        <div class="dl" data-repeat="tools.val" data-tpl="dl"></div>
+        <div class="row sp-t">
+          <a class="btn ghost" href="case.html?id=sync-validation-barriers" data-i18n="tools.val.case1"></a>
+          <a class="btn ghost" href="case.html?id=feature-modules-leak-removal" data-i18n="tools.val.case2"></a>
+        </div>
       </section>
 
       <section class="block">

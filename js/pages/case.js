@@ -30,6 +30,19 @@
     if (!has(k)) return "";
     return '<h2 data-i18n="' + h + '"></h2><p data-i18n="' + k + '"></p>' + mediaFor(c, at);
   }
+  /* proof line:  Engine commit: <hash> ... each hash is a link to <repo>/commit/<hash> when the repo is public.
+     Ranges ("52909c0 … 5c567f7") and lists ("4695bcd, 0d29813") work, because every 7 to 40 char hex word is linked.
+     proofPending:true (work finished locally, not pushed) shows a text instead and NEVER a hash. */
+  function proofHtml(c) {
+    /* pending: say it is not pushed, then give the real outcome of the work ("Works in my local build, with limits") */
+    if (c.proofPending) return '<span><span class="proof-pending" data-i18n="case.proof.pending"></span> · <span data-i18n="status.local.' + c.status + '"></span></span>';
+    if (!c.proof) return "";
+    var repo = GTW.site.repos && GTW.site.repos.engine, pub = repo && repo.public && repo.url;
+    var s = esc(c.proof).replace(/\b[0-9a-f]{7,40}\b/g, function (h) {
+      return pub ? '<a href="' + esc(repo.url) + "/commit/" + h + '" target="_blank" rel="noopener"><code>' + h + "</code></a>" : "<code>" + h + "</code>";
+    });
+    return '<span><span data-i18n="case.proof"></span>: ' + s + "</span>";
+  }
 
   function notFound(root) {
     root.innerHTML = '<div class="page-head"><div class="wrap"><h1 data-i18n="case.notfound"></h1>' +
@@ -52,13 +65,13 @@
 
       var html =
         '<div class="page-head"><div class="wrap">' +
-        '<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="journal.html" data-i18n="nav.journal"></a><span class="sep">/</span><a href="journal.html#' + c.cat + '" data-i18n="cat.' + c.cat + '"></a></nav>' +
+        '<nav class="crumbs" aria-label="' + esc(GTW.t("ui.crumbs")) + '"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><a href="journal.html" data-i18n="nav.journal"></a><span class="sep">/</span><a href="journal.html#' + c.cat + '" data-i18n="cat.' + c.cat + '"></a></nav>' +
         '<span class="eyebrow" data-i18n="cat.' + c.cat + '"></span>' +
         '<h1 data-i18n="case.' + id + '.title"></h1>' +
         '<p class="lead" data-i18n="case.' + id + '.summary"></p>' +
-        '<div class="case-meta"><span class="badge ' + GTW.badgeClass(c.status) + '" data-i18n="status.' + c.status + '"></span>' +
+        '<div class="case-meta"><span class="badge ' + GTW.badgeClass(GTW.statusKey(c)) + '" data-i18n="status.' + GTW.statusKey(c) + '"></span>' +
         "<span>" + esc(c.date) + "</span>" +
-        (c.proof ? '<span><span data-i18n="case.proof"></span>: <code>' + esc(c.proof) + "</code></span>" : "") + "</div>" +
+        proofHtml(c) + "</div>" +
         "</div></div>" +
         '<section class="section"><div class="wrap"><div class="case-body">' +
         (hasMetrics ? '<div class="metrics" data-repeat="case.' + id + '.m" data-tpl="metric"></div>' : "") +

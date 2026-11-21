@@ -2,48 +2,35 @@
 """
 Find every placeholder that is STILL SHOWN on the site (dashed media boxes and unset contact entries).
 
-It opens the real pages in headless Edge/Chrome, waits for the media probing to finish, and reads the
-rendered DOM. So it reports what a visitor really sees, not what the data files say.
+It opens the real pages in headless Chrome (Edge only as fallback), waits for the media probing to finish, and reads
+the rendered DOM. So it reports what a visitor really sees, not what the data files say.
 
-  python tools/find_placeholders.py                  # local files, all pages
+  python tools/find_placeholders.py                  # local files, every *.html page of the repo
   python tools/find_placeholders.py --cases          # also render all case study pages (slower)
   python tools/find_placeholders.py --live https://wiratamana.github.io/GreatTamanaWeb/
   python tools/find_placeholders.py --out placeholders.md      # save a markdown report
   python tools/find_placeholders.py --json                     # machine readable output
+  python tools/find_placeholders.py --jobs 4                   # parallel browsers (default 3)
 
 Result: for each slot: file to create, kind, hint (what to capture), and the pages where it appears.
-Exit code 1 when something is still a placeholder (usable in a pre-publish check).
+Exit code: 0 nothing left, 1 something is still a placeholder (usable in a pre-publish check),
+           2 the tool itself cannot be trusted (no browser, empty DOM, positive control not seen). It never says "0 placeholders"
+           when the browser returned nothing.
+Browser helpers (Chrome first, positive control, temp folder cleanup) live in tools/smoke_test.py.
 """
-import concurrent.futures as cf
 import html
 import json
 import os
 import re
-import shutil
-import subprocess
 import sys
-import tempfile
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BROWSERS = [
-    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-    r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
-    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
-]
-MAIN_PAGES = ["index.html", "engine.html", "rendering.html", "clouds.html", "animation.html", "tools.html",
-              "app.html", "journal.html", "gallery.html", "workflow.html", "about.html"]
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import smoke_test as st          # noqa: E402  (shared browser helpers)
 
+ROOT = st.ROOT
 
-def browser():
-    for b in BROWSERS:
-        if os.path.exists(b):
-            return b
-    sys.exit("no Edge/Chrome found")
-
-
-def case_ids():
-    s = open(os.path.join(ROOT, "js", "data", "cases.js"), encoding="utf-8").read()
-    return re.findall(r'\{\s*id:\s*"([\w\-]+)",\s*cat:', s)
+_PH = re.compile(r'<div class="ph"[^>]*>.*?<span class="f">assets/media/([\w\-]+) ', re.S)
+_TODO = re.compile(r'<li><span class="k"[^>]*>([^<]*)</span><span class="todo"')
 
 
 def hints():
@@ -52,42 +39,59 @@ def hints():
     return json.loads(m.group(1))
 
 
-def render(url):
-    prof = tempfile.mkdtemp(prefix="gtw_ph_")
-    try:
-        r = subprocess.run([browser(), "--headless=new", "--disable-gpu", "--user-data-dir=" + prof,
-                            "--virtual-time-budget=9000", "--dump-dom", url],
-                           capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=150)
-        return r.stdout
-    finally:
-        shutil.rmtree(prof, ignore_errors=True)
-
-
 def parse(dom):
     """-> (list of slot ids still shown as placeholder, list of unset contact keys)"""
-    slots = []
-    for m in re.finditer(r'<div class="ph"[^>]*>.*?<span class="f">assets/media/([\w\-]+) ', dom, re.S):
-        slots.append(m.group(1))
-    contacts = []
-    for m in re.finditer(r'<li><span class="k"[^>]*>([^<]*)</span><span class="todo"', dom):
-        contacts.append(html.unescape(m.group(1)).strip())
+    slots = [m.group(1) for m in _PH.finditer(dom)]
+    contacts = [html.unescape(m.group(1)).strip() for m in _TODO.finditer(dom)]
     return slots, contacts
+
+
+def selftest():
+    """the parser must see a placeholder in a known snippet, otherwise 'nothing found' would mean nothing"""
+    snippet = ('<div class="ph" data-x="1"><span class="k">x</span><span class="f">assets/media/test-slot .mp4</span></div>'
+               '<li><span class="k" data-i18n="contact.cv">CV</span><span class="todo">not set</span></li>')
+    slots, cons = parse(snippet)
+    if slots != ["test-slot"] or cons != ["CV"]:
+        raise st.ToolBlind("TOOL BLIND: placeholder parser self test failed (%r, %r). The page markup changed: fix parse()." % (slots, cons))
+
+
+def render(url):
+    """-> rendered DOM. Raises ToolBlind when the DOM is empty or is not a rendered page."""
+    r = st.run_browser(url, budget=9000, timeout=150)
+    probs = st.dom_problems(r["dom"])
+    if r["timeout"]:
+        probs.append("browser timeout")
+    if probs:
+        raise st.ToolBlind("TOOL BLIND: %s : %s" % (url, "; ".join(probs)))
+    return r["dom"]
 
 
 def main():
     args = sys.argv[1:]
+    if "-h" in args or "--help" in args:
+        print(__doc__)
+        return 0
     live = None
     out = None
+    jobs = 3
     if "--live" in args:
         live = args[args.index("--live") + 1].rstrip("/") + "/"
     if "--out" in args:
         out = args[args.index("--out") + 1]
+    if "--jobs" in args:
+        jobs = int(args[args.index("--jobs") + 1])
     want_json = "--json" in args
 
-    pages = list(MAIN_PAGES)
-    if "--cases" in args:
-        pages += ["case.html?id=" + c for c in case_ids()]
-    base = live or ("file:///" + ROOT.replace("\\", "/") + "/")
+    st.sweep_stale()
+    selftest()
+    browser = st.control_check()
+    if not want_json:
+        print("browser: %s   positive control: OK" % browser)
+
+    pages = [p for p in st.html_pages() if p != "case.html"]
+    if "--cases" in args and "case.html" in st.html_pages():
+        pages += ["case.html?id=" + c for c in st.case_ids()]
+    base = live or (st.file_url(ROOT) + "/")
 
     def job(p):
         sep = "&" if "?" in p else "?"
@@ -95,14 +99,13 @@ def main():
 
     found = {}      # slot -> set(pages)
     contacts = {}   # key -> set(pages)
-    with cf.ThreadPoolExecutor(max_workers=4) as ex:
-        for p, (slots, cons) in ex.map(job, pages):
-            for s in slots:
-                found.setdefault(s, set()).add(p)
-            for c in cons:
-                contacts.setdefault(c, set()).add(p)
-            if not want_json:
-                print("%-34s %d placeholder(s)" % (p, len(slots) + len(cons)))
+    for p, (slots, cons) in st.run_parallel(pages, job, jobs):
+        for s in slots:
+            found.setdefault(s, set()).add(p)
+        for c in cons:
+            contacts.setdefault(c, set()).add(p)
+        if not want_json:
+            print("%-34s %d placeholder(s)" % (p, len(slots) + len(cons)))
 
     # kinds from the source
     kinds = {}
@@ -110,10 +113,12 @@ def main():
     for f in os.listdir(ROOT):
         if f.endswith(".html"):
             src += open(os.path.join(ROOT, f), encoding="utf-8").read()
-    for sub in ("js/data", "js/pages"):
+    for sub in ("js/data", "js/pages", "js/components"):
         d = os.path.join(ROOT, sub)
-        for f in os.listdir(d):
-            src += open(os.path.join(d, f), encoding="utf-8").read()
+        if os.path.isdir(d):
+            for f in os.listdir(d):
+                if f.endswith(".js"):
+                    src += open(os.path.join(d, f), encoding="utf-8").read()
     for m in re.finditer(r'data-slot="([\w\-]+)"(?:\s+data-kind="(\w+)")?', src):
         kinds[m.group(1)] = m.group(2) or "image"
     for m in re.finditer(r'\{\s*(?:slot|id):\s*"([\w\-]+)",\s*kind:\s*"(\w+)"', src):
@@ -148,7 +153,7 @@ def main():
                 lines.append("  %s  (on: %s)" % (c["contact"], ", ".join(c["pages"])))
             lines.append("")
         if not rows and not crow:
-            lines.append("Nothing left. No placeholder is visible on the checked pages.")
+            lines.append("Nothing left. No placeholder is visible on the %d checked pages (all DOMs were rendered and non-empty)." % len(pages))
         print("\n".join(lines))
         if out:
             md = ["# Placeholders still shown", ""]
@@ -163,8 +168,17 @@ def main():
                 md += ["## Contact entries", ""] + ["- " + c["contact"] for c in crow] + [""]
             open(out, "w", encoding="utf-8").write("\n".join(md))
             print("report written:", out)
-    sys.exit(1 if (rows or crow) else 0)
+    return 1 if (rows or crow) else 0
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        code = main()
+    except st.ToolBlind as e:
+        print(e)
+        code = 2
+    except KeyboardInterrupt:
+        st.cleanup_all()
+        code = 130
+    st.cleanup_all()
+    sys.exit(code)

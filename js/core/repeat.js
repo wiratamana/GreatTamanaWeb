@@ -12,7 +12,7 @@
      stat   v l                                    big number + label
      metric v l [tone]                             metric box (tone = good | warn)
      dl     k d                                    definition row
-     step   t d                                    numbered pipeline stage (wrap in <div class="flow">)
+     step   t d [href]                             numbered pipeline stage (wrap in <div class="flow">); with .href it is a link
      layer  k d [hl]                               architecture layer row (wrap in <div class="layers">)
      li     t                                      <li>   (use inside ul / ol / ul.ticks)
      chip   t                                      <li class="chip">
@@ -41,7 +41,11 @@
     stat: function (p) { return '<div class="stat"><span class="v"' + a(p + ".v") + '></span><span class="l"' + a(p + ".l") + "></span></div>"; },
     metric: function (p) { return '<div class="metric ' + (raw(p + ".tone") || "") + '"><span class="v"' + a(p + ".v") + '></span><span class="l"' + a(p + ".l") + "></span></div>"; },
     dl: function (p) { return '<div class="r"><dt class="k"' + a(p + ".k") + '></dt><dd class="d"' + a(p + ".d") + "></dd></div>"; },
-    step: function (p) { return '<div class="st"><h4' + a(p + ".t") + "></h4><p" + a(p + ".d") + "></p></div>"; },
+    step: function (p) {
+      var inner = "<h4" + a(p + ".t") + "></h4><p" + a(p + ".d") + "></p>";
+      /* optional .href (language neutral): the step becomes a link, used by the 60 second tour on the home page */
+      return has(p + ".href") ? '<a class="st" href="' + esc(raw(p + ".href")) + '">' + inner + "</a>" : '<div class="st">' + inner + "</div>";
+    },
     layer: function (p) { return '<div class="ly ' + (has(p + ".hl") ? "hl" : "") + '"><div class="k"' + a(p + ".k") + '></div><div class="d"' + a(p + ".d") + "></div></div>"; },
     li: function (p) { return "<li" + a(p + ".t") + "></li>"; },
     chip: function (p) { return '<li class="chip"' + a(p + ".t") + "></li>"; },

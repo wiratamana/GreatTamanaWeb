@@ -9,7 +9,8 @@
     /* Name shown in header, footer and page titles (per language) */
     name: { en: "Wira Tamana", ja: "ウィラ タマナ" },
     handle: "wiratamana",
-    updated: "2026-11-13",
+    /* Shown in the footer and used by the {updated} text token. Bump it on every release (tools/stamp.py does it). */
+    updated: "2026-11-22",
 
     /* ---------------- CONTACT: fill these in ----------------
        Empty string = not shown as a link. While showPlaceholders is true, an empty
@@ -19,7 +20,7 @@
     contacts: {
       email:    "wiratamana@icloud.com",
       github:   "https://github.com/wiratamana",
-      cv:       ""                                    // e.g. "assets/media/cv-wira-tamana.pdf"
+      cv:       "cv.html"                               // printable CV page of this site (Print / Save as PDF). A PDF path also works.
     },
 
     /* ---------------- REPOSITORIES ----------------
@@ -32,7 +33,8 @@
     },
 
     /* ---------------- NAVIGATION ----------------
-       key = text key in i18n/<lang>/common.js. Add a page: add one entry here. */
+       key = text key in i18n/<lang>/common.js. Add a page: add one entry here.
+       badge + badgeUntil ("YYYY-MM-DD"): shows a small badge next to the item until that day. */
     nav: [
       { id: "home", href: "index.html", key: "nav.home" },
       { id: "engine", key: "nav.engine", children: [
@@ -42,6 +44,7 @@
         { id: "animation", href: "animation.html", key: "nav.engine.animation" },
         { id: "tools",     href: "tools.html",     key: "nav.engine.tools" }
       ] },
+      { id: "world", href: "world.html", key: "nav.world", badge: "nav.new", badgeUntil: "2026-12-31" },
       { id: "app", href: "app.html", key: "nav.app" },
       { id: "journal", href: "journal.html", key: "nav.journal", also: ["case"] },
       { id: "gallery", href: "gallery.html", key: "nav.gallery" },

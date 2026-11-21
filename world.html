@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-page="world" data-bundles="common,world,cases" data-scripts="data/cases,components/case-card,pages/world" data-title="world.title" data-desc="world.desc">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--seo:begin-->
+<title>Procedural World: terrain, rivers, grass, trees and sky in one Vulkan demo · Wira Tamana</title>
+<meta name="description" content="A procedural Vulkan world: terrain, rivers, grass, oak and sakura trees with bone-driven wind, light shafts and clouds. Intel iGPU timings, with the failures.">
+<meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/world.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/world.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/world.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/world.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="Procedural World: terrain, rivers, grass, trees and sky in one Vulkan demo · Wira Tamana">
+<meta property="og:description" content="A procedural Vulkan world: terrain, rivers, grass, oak and sakura trees with bone-driven wind, light shafts and clouds. Intel iGPU timings, with the failures.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/world.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A landscape rendered in my own Vulkan engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Procedural World: terrain, rivers, grass, trees and sky in one Vulkan demo · Wira Tamana">
+<meta name="twitter:description" content="A procedural Vulkan world: terrain, rivers, grass, oak and sakura trees with bone-driven wind, light shafts and clouds. Intel iGPU timings, with the failures.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta name="twitter:image:alt" content="A landscape rendered in my own Vulkan engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<script src="js/core/loader.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div id="site-header"></div>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
+
+<main id="main">
+  <header class="page-head"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="nav.home"></a><span class="sep">/</span><span data-i18n="nav.world"></span></nav>
+    <span class="eyebrow" data-i18n="world.eyebrow"></span>
+    <h1 data-i18n="world.h1"></h1>
+    <p class="lead" data-i18n="world.lead"></p>
+  </div></header>
+
+  <div class="section"><div class="wrap"><div class="page-grid">
+    <aside class="toc" id="toc"></aside>
+    <div class="content">
+
+      <div class="grid g2">
+        <figure data-img="pl9-default-open" data-cap="world.fig1"></figure>
+        <figure data-img="pl9-default-open-notrees" data-cap="world.fig2"></figure>
+      </div>
+
+      <div class="stats" data-repeat="world.stats" data-tpl="stat"></div>
+      <p class="dim"><small data-i18n="world.stats.note"></small></p>
+
+      <div class="callout lesson"><h4 data-i18n="world.where.h"></h4><p data-i18n="world.where.p"></p></div>
+
+      <!-- ===== DEMO ===== -->
+      <section class="block">
+        <h2 id="demo" data-i18n="world.demo.h"></h2>
+        <p data-i18n="world.demo.p"></p>
+        <div class="flow" data-repeat="world.demo.flow" data-tpl="step"></div>
+        <figure data-slot="pl9-wind-loop" data-kind="webp" data-cap="world.demo.fig1"></figure>
+        <div class="dl" data-repeat="world.demo.facts" data-tpl="dl"></div>
+        <figure data-img="pl4-tiers-lean-big" data-cap="world.demo.fig2"></figure>
+      </section>
+
+      <!-- ===== TERRAIN ===== -->
+      <section class="block">
+        <h2 id="terrain" data-i18n="world.terrain.h"></h2>
+        <p data-i18n="world.terrain.p"></p>
+        <figure data-img="pl8-far-progress-sheet" data-cap="world.terrain.fig1"></figure>
+        <div class="dl" data-repeat="world.terrain.facts" data-tpl="dl"></div>
+        <div class="grid g2">
+          <figure data-img="pl8-mid-after" data-cap="world.terrain.fig2"></figure>
+          <figure data-img="pl8-detail-off" data-cap="world.terrain.fig3"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.terrain.lim.h"></h4><ul class="ticks part" data-repeat="world.terrain.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== HYDROLOGY ===== -->
+      <section class="block">
+        <h2 id="hydrology" data-i18n="world.hydro.h"></h2>
+        <p data-i18n="world.hydro.p"></p>
+        <div class="flow" data-repeat="world.hydro.flow" data-tpl="step"></div>
+        <div class="grid g2">
+          <figure data-img="pl8-hydro-before" data-cap="world.hydro.fig1"></figure>
+          <figure data-img="pl8-hydro-relief" data-cap="world.hydro.fig2"></figure>
+        </div>
+        <div class="dl" data-repeat="world.hydro.facts" data-tpl="dl"></div>
+        <div class="grid g2">
+          <figure data-img="pl8-hydro-accum" data-cap="world.hydro.fig3"></figure>
+          <figure data-img="pl8-hydro-bodies" data-cap="world.hydro.fig4"></figure>
+        </div>
+        <div class="grid g2">
+          <figure data-img="pl8-river-mouth" data-cap="world.hydro.fig5"></figure>
+          <figure data-img="pl8-lake-straight-shore" data-cap="world.hydro.fig6"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.hydro.lim.h"></h4><ul class="ticks part" data-repeat="world.hydro.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== GRASS ===== -->
+      <section class="block">
+        <h2 id="grass" data-i18n="world.grass.h"></h2>
+        <p data-i18n="world.grass.p"></p>
+        <div class="grid g2">
+          <figure data-img="pl5-ground-before" data-cap="world.grass.fig1"></figure>
+          <figure data-img="pl5-ground-after" data-cap="world.grass.fig2"></figure>
+        </div>
+        <div class="dl" data-repeat="world.grass.facts" data-tpl="dl"></div>
+        <div class="grid g2">
+          <figure data-img="pl5-mtnshadow-off" data-cap="world.grass.fig3"></figure>
+          <figure data-img="pl5-mtnshadow-on" data-cap="world.grass.fig4"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.grass.lim.h"></h4><ul class="ticks part" data-repeat="world.grass.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== TREES ===== -->
+      <section class="block">
+        <h2 id="trees" data-i18n="world.trees.h"></h2>
+        <p data-i18n="world.trees.p"></p>
+        <div class="grid g2">
+          <figure data-img="pl9-aerial-r1" data-cap="world.trees.fig1"></figure>
+          <figure data-img="pl9-aerial-r4" data-cap="world.trees.fig2"></figure>
+        </div>
+        <div class="dl" data-repeat="world.trees.facts" data-tpl="dl"></div>
+        <figure data-img="pl9-placement-map" data-cap="world.trees.fig3"></figure>
+        <div class="grid g2">
+          <figure data-img="pl9-valley" data-cap="world.trees.fig4"></figure>
+          <figure data-img="pl9-sakura" data-cap="world.trees.fig5"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.trees.lim.h"></h4><ul class="ticks part" data-repeat="world.trees.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== WIND ===== -->
+      <section class="block">
+        <h2 id="wind" data-i18n="world.wind.h"></h2>
+        <p data-i18n="world.wind.p"></p>
+        <div class="dl" data-repeat="world.wind.facts" data-tpl="dl"></div>
+        <figure data-img="pl9-wind-diff" data-cap="world.wind.fig1"></figure>
+        <div class="grid g2">
+          <figure data-img="pl9-oak-bones" data-cap="world.wind.fig2"></figure>
+          <figure data-img="pl9-bones-debug" data-ratio="1/1" data-cap="world.wind.fig3"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.wind.lim.h"></h4><ul class="ticks part" data-repeat="world.wind.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== SHAFTS ===== -->
+      <section class="block">
+        <h2 id="shafts" data-i18n="world.shafts.h"></h2>
+        <p data-i18n="world.shafts.p"></p>
+        <div class="grid g2">
+          <figure data-img="pl9-shafts-off" data-cap="world.shafts.fig1"></figure>
+          <figure data-img="pl9-shafts-on" data-cap="world.shafts.fig2"></figure>
+        </div>
+        <div class="dl" data-repeat="world.shafts.facts" data-tpl="dl"></div>
+        <figure data-img="pl9-shafts-sheet" data-cap="world.shafts.fig3"></figure>
+        <div class="callout honest"><h4 data-i18n="world.shafts.lim.h"></h4><ul class="ticks part" data-repeat="world.shafts.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== ATMOSPHERE AND CLOUDS ===== -->
+      <section class="block">
+        <h2 id="sky" data-i18n="world.sky.h"></h2>
+        <p data-i18n="world.sky.p"></p>
+        <figure data-img="pl7-cloud-journey-sheet" data-cap="world.sky.fig1"></figure>
+        <div class="dl" data-repeat="world.sky.facts" data-tpl="dl"></div>
+        <div class="grid g2">
+          <figure data-img="pl6-shafts-mountain" data-cap="world.sky.fig2"></figure>
+          <figure data-img="pl6-shafts-small-clouds" data-cap="world.sky.fig3"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.sky.lim.h"></h4><ul class="ticks part" data-repeat="world.sky.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== ARCHITECTURE ===== -->
+      <section class="block">
+        <h2 id="architecture" data-i18n="world.arch.h"></h2>
+        <p data-i18n="world.arch.p"></p>
+        <div class="dl" data-repeat="world.arch.facts" data-tpl="dl"></div>
+        <div class="grid g2">
+          <figure data-img="pl4-blacksky-bug" data-cap="world.arch.fig1"></figure>
+          <figure data-img="pl4-blacksky-fixed" data-cap="world.arch.fig2"></figure>
+        </div>
+        <div class="callout honest"><h4 data-i18n="world.arch.lim.h"></h4><ul class="ticks part" data-repeat="world.arch.lim" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== NUMBERS ===== -->
+      <section class="block">
+        <h2 id="numbers" data-i18n="world.num.h"></h2>
+        <p data-i18n="world.num.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="world.num.th1"></th><th class="num" data-i18n="world.num.th2"></th><th class="num" data-i18n="world.num.th3"></th><th class="num" data-i18n="world.num.th4"></th><th class="num" data-i18n="world.num.th5"></th></tr></thead>
+          <tbody data-repeat="world.num.perf" data-tpl="tr"></tbody>
+        </table></div>
+        <p class="dim"><small data-i18n="world.num.perf.note"></small></p>
+        <ul class="ticks part" data-repeat="world.num.facts" data-tpl="li"></ul>
+        <h3 data-i18n="world.num.code.h"></h3>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="world.num.code.th1"></th><th class="num" data-i18n="world.num.code.th2"></th><th class="num" data-i18n="world.num.code.th3"></th></tr></thead>
+          <tbody data-repeat="world.num.code" data-tpl="tr"></tbody>
+        </table></div>
+        <p class="dim"><small data-i18n="world.num.code.note"></small></p>
+      </section>
+
+      <!-- ===== PROCESS ===== -->
+      <section class="block">
+        <h2 id="process" data-i18n="world.process.h"></h2>
+        <p data-i18n="world.process.p"></p>
+        <div class="flow" data-repeat="world.process.flow" data-tpl="step"></div>
+        <div data-bars="world.qa"></div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="world.process.th1"></th><th data-i18n="world.process.th2"></th><th data-i18n="world.process.th3"></th><th data-i18n="world.process.th4"></th></tr></thead>
+          <tbody data-repeat="world.process.score" data-tpl="tr"></tbody>
+        </table></div>
+        <div class="grid g2">
+          <figure data-img="pl8-qa-score-chart" data-cap="world.process.fig1"></figure>
+          <figure data-img="pl7-qa-score-chart" data-cap="world.process.fig2"></figure>
+        </div>
+        <h3 data-i18n="world.process.judge.h"></h3>
+        <ul class="ticks part" data-repeat="world.process.judge" data-tpl="li"></ul>
+        <p><a href="workflow.html" data-i18n="world.process.more"></a></p>
+      </section>
+
+      <!-- ===== LIMITS ===== -->
+      <section class="block">
+        <h2 id="limits" data-i18n="world.limits.h"></h2>
+        <div class="callout honest"><h4 data-i18n="world.limits.ch"></h4><ul class="ticks part" data-repeat="world.limits" data-tpl="li"></ul></div>
+      </section>
+
+      <!-- ===== CASES ===== -->
+      <section class="block">
+        <h2 id="cases" data-i18n="world.cases.h"></h2>
+        <p data-i18n="world.cases.p"></p>
+        <div class="grid g3" id="rel-world"></div>
+        <h3 id="rel-cloud-h" data-i18n="world.cases.cloud"></h3>
+        <div class="grid g3" id="rel-cloud"></div>
+        <p class="sp-t"><a class="btn" href="journal.html#world" data-i18n="world.cases.all"></a></p>
+        <p class="dim"><small data-i18n="note.hw.short"></small></p>
+      </section>
+
+    </div>
+  </div></div></div>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

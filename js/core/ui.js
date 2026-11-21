@@ -44,29 +44,56 @@
     setTimeout(function () { for (var m = 0; m < bars.length; m++) fill(bars[m]); }, 3500);
   }
 
-  /* ---------------- lightbox ---------------- */
-  var lb;
+  /* ---------------- lightbox ----------------
+     Accessible: role=dialog + aria-modal, focus moves to the close button, Tab is trapped, Escape closes,
+     focus goes back to the picture that opened it. Pictures are keyboard focusable (media.js: Enter or Space opens). */
+  var lb, lbOpener = null;
+  function closeLb() {
+    if (!lb || !lb.classList.contains("on")) return;
+    lb.classList.remove("on");
+    if (lbOpener && lbOpener.focus) lbOpener.focus();
+    lbOpener = null;
+  }
   function openLb(src, cap) {
     if (!lb) {
       lb = document.createElement("div");
       lb.className = "lb";
-      lb.innerHTML = '<button type="button" aria-label="Close">✕</button><img alt=""><div class="cap"></div>';
+      lb.setAttribute("role", "dialog");
+      lb.setAttribute("aria-modal", "true");
+      lb.setAttribute("aria-label", GTW.t("ui.zoom"));
+      lb.innerHTML = '<button type="button" aria-label="' + esc(GTW.t("ui.close")) + '">✕</button><img alt=""><div class="cap"></div>';
       document.body.appendChild(lb);
-      lb.addEventListener("click", function (e) { if (e.target.tagName !== "IMG") lb.classList.remove("on"); });
-      document.addEventListener("keydown", function (e) { if (e.key === "Escape") lb.classList.remove("on"); });
+      lb.addEventListener("click", function (e) { if (e.target.tagName !== "IMG") closeLb(); });
+      document.addEventListener("keydown", function (e) {
+        if (!lb.classList.contains("on")) return;
+        if (e.key === "Escape") { e.preventDefault(); closeLb(); }
+        else if (e.key === "Tab") { e.preventDefault(); lb.querySelector("button").focus(); }   // the close button is the only control: keep focus on it
+      });
     }
+    lbOpener = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
     lb.querySelector("img").src = src;
     lb.querySelector(".cap").innerHTML = cap || "";
     lb.classList.add("on");
+    lb.querySelector("button").focus();
   }
   function initLightbox() {
-    document.addEventListener("click", function (e) {
-      var im = e.target;
-      if (im.tagName !== "IMG" || !im.closest(".fig .m")) return;
+    function open(im) {
       var full = im.getAttribute("data-full");
       if (!full) return;
       var fc = im.closest(".fig").querySelector("figcaption");
       openLb(full, fc ? fc.innerHTML : "");
+    }
+    document.addEventListener("click", function (e) {
+      var im = e.target;
+      if (im.tagName !== "IMG" || !im.closest(".fig .m")) return;
+      open(im);
+    });
+    document.addEventListener("keydown", function (e) {
+      var im = e.target;
+      if ((e.key === "Enter" || e.key === " ") && im && im.tagName === "IMG" && im.closest && im.closest(".fig .m") && im.getAttribute("data-full")) {
+        e.preventDefault();
+        open(im);
+      }
     });
   }
 
@@ -93,15 +120,34 @@
     toc.innerHTML = s;
     GTW.i18n.apply(toc);
     document.querySelector(".page-grid").classList.add("has-toc");
-    if (!("IntersectionObserver" in window)) return;
     var links = toc.querySelectorAll("a");
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        for (var k = 0; k < links.length; k++) links[k].classList.toggle("on", links[k].getAttribute("href") === "#" + e.target.id);
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    for (var j = 0; j < hs.length; j++) io.observe(hs[j]);
+    /* on phones the list is a horizontal row of chips (css/base.css): keep the current chip in view. On desktop nothing is wider than the box, so this does nothing. */
+    function showChip(a) {
+      if (toc.scrollWidth <= toc.clientWidth + 2) return;
+      toc.scrollLeft = Math.max(0, a.offsetLeft - (toc.clientWidth - a.offsetWidth) / 2);
+    }
+    /* scroll spy: the current section = the last heading that has reached a line a little below the header.
+       (An IntersectionObserver band missed the heading after a jump from the list: the jump puts the heading above the band, so no entry was marked.) */
+    var header = document.querySelector(".site-header"), current = null, queued = false;
+    function spy() {
+      queued = false;
+      var line = (header ? header.offsetHeight : 64) + 120, cur = null;
+      for (var j = 0; j < hs.length; j++) { if (hs[j].getBoundingClientRect().top <= line) cur = hs[j]; else break; }
+      if (cur === current) return;
+      current = cur;
+      for (var k = 0; k < links.length; k++) {
+        var on = !!cur && links[k].getAttribute("href") === "#" + cur.id;
+        links[k].classList.toggle("on", on);
+        if (on) showChip(links[k]);
+      }
+    }
+    window.addEventListener("scroll", function () {
+      if (queued) return;
+      queued = true;
+      (window.requestAnimationFrame || setTimeout)(spy);
+    }, { passive: true });
+    window.addEventListener("resize", spy);
+    spy();
   }
 
   GTW.ui = { buildAllBars: buildAllBars, buildBars: buildBars, animateBars: animateBars, initLightbox: initLightbox, initReveal: initReveal, initToc: initToc, openLightbox: openLb };

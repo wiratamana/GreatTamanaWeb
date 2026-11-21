@@ -5,7 +5,7 @@ GTW.i18n.add("en", {
   "case.toon.problem": "The test character was rendered with flat, realistic shading, but the goal was an anime cel look. The engine had no outline and no bloom, and the PMX toon, sphere and edge data were imported but never drawn.",
   "case.toon.method": "Code reading, inspection of the model (32 materials, grouped by role) and a reference picture as the ground truth for the look.",
   "case.toon.cause": "Not a bug but missing features. Building them also exposed two gaps in the Feature Kit: a colour pipeline factory and a 'draw only these entities' filter were missing.",
-  "case.toon.fix": "A real render feature in src/Features/ToonCharacter with its own passes, toggles, panel and HTTP endpoint. A generic Bloom feature. A furina_showcase preset scene. The shader class of each material is derived from the rig data at runtime, so models need no re-import. The Feature Kit gaps were closed.",
+  "case.toon.fix": "A real render feature in src/Features/ToonCharacter with its own passes, toggles, panel and HTTP endpoint. A generic Bloom feature. A character showcase preset scene. The shader class of each material is derived from the rig data at runtime, so models need no re-import. The Feature Kit gaps were closed.",
   "case.toon.result": "Landed in a series of commits on 2026-11-03 (f283019 to 515c1d4). The character is cel shaded with outlines, rim light and bloom.",
   "case.toon.limits": "Morph target blending is missing, so closed eyes are not possible. The reference picture is not shown on this site because it is not mine.",
   "case.toon.f1": "Toon-shaded character with outline and bloom.",

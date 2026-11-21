@@ -3,10 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GreatTamanaApp · Wira Tamana</title>
-<meta name="description" content="Desktop AI agent app in C# and Avalonia with 173 tools and parallel sub-agents.">
+<!--seo:begin-->
+<title>GreatTamanaApp: desktop AI agent app (C#, Avalonia) · Wira Tamana</title>
+<meta name="description" content="A desktop chat and AI agent app in C# and Avalonia: agent loop, 173 tools, parallel sub-agents, pause and resume, three LLM providers, and a bridge that lets the agent debug my game engine.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/app.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/app.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/app.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/app.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="GreatTamanaApp: desktop AI agent app (C#, Avalonia) · Wira Tamana">
+<meta property="og:description" content="A desktop chat and AI agent app in C# and Avalonia: agent loop, 173 tools, parallel sub-agents, pause and resume, three LLM providers, and a bridge that lets the agent debug my game engine.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/app.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/app-chat-main.webp">
+<meta property="og:image:width" content="1484">
+<meta property="og:image:height" content="1042">
+<meta property="og:image:alt" content="The chat window of GreatTamanaApp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GreatTamanaApp: desktop AI agent app (C#, Avalonia) · Wira Tamana">
+<meta name="twitter:description" content="A desktop chat and AI agent app in C# and Avalonia: agent loop, 173 tools, parallel sub-agents, pause and resume, three LLM providers, and a bridge that lets the agent debug my game engine.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/app-chat-main.webp">
+<meta name="twitter:image:alt" content="The chat window of GreatTamanaApp">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -15,7 +39,23 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
   <header class="page-head"><div class="wrap">
@@ -59,11 +99,16 @@
         <h2 id="engine-loop" data-i18n="app.eng.h"></h2>
         <p data-i18n="app.eng.p"></p>
         <div class="flow" data-repeat="app.eng" data-tpl="step"></div>
-        <div class="fig-grid">
-          <figure data-slot="app-engine-bridge" data-kind="image" data-cap="app.fig.bridge"></figure>
-          <figure data-slot="demo-agent-visual-debug" data-kind="video" data-cap="app.fig.demo"></figure>
-        </div>
+        <figure data-slot="app-engine-bridge" data-kind="image" data-cap="app.fig.bridge"></figure>
         <div class="callout lesson"><h4 data-i18n="app.eng.note.h"></h4><p data-i18n="app.eng.note.p"></p></div>
+      </section>
+
+      <section class="block">
+        <h2 id="landscape" data-i18n="app.land.h"></h2>
+        <p data-i18n="app.land.p"></p>
+        <div class="dl" data-repeat="app.land" data-tpl="dl"></div>
+        <div class="callout honest"><h4 data-i18n="app.land.wrong.h"></h4><ul class="ticks no" data-repeat="app.land.wrong" data-tpl="li"></ul></div>
+        <p><a class="btn" href="world.html" data-i18n="app.land.more"></a></p>
       </section>
 
       <section class="block">

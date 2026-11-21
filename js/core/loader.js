@@ -42,11 +42,15 @@
   GTW.langs = SUPPORTED;
   root.setAttribute("lang", lang);
   root.classList.add("js", "i18n-loading");
-  /* safety: never leave the page hidden */
-  setTimeout(function () { root.classList.remove("i18n-loading"); }, 2500);
+  /* safety: never leave the page hidden (boot normally removes this class much earlier) */
+  setTimeout(function () { root.classList.remove("i18n-loading"); }, 1200);
 
   /* ---- bundles ---- */
-  var CASE_BUNDLES = ["cases-perf", "cases-anim", "cases-look", "cases-tools", "cases-cloud"];
+  var CASE_BUNDLES = ["cases-perf", "cases-anim", "cases-look", "cases-tools", "cases-cloud",
+                      "cases-world", "cases-trees", "cases-cloud2"];
+  /* extra case INDEX files. Each one pushes more entries into GTW.cases (see js/data/cases.js).
+     They are loaded right after "data/cases", on every page that asks for "data/cases". */
+  var CASE_DATA = ["data/cases-world", "data/cases-trees", "data/cases-cloud2"];
   var wanted = (root.getAttribute("data-bundles") || "common").split(",");
   var bundles = [];
   wanted.forEach(function (b) {
@@ -68,7 +72,9 @@
   ["data/site", "core/media", "core/repeat", "core/ui", "core/layout"].forEach(function (s) { w("js/" + s + ".js"); });
   (root.getAttribute("data-scripts") || "").split(",").forEach(function (s) {
     s = s.trim();
-    if (s) w("js/" + s + ".js");
+    if (!s) return;
+    w("js/" + s + ".js");
+    if (s === "data/cases") CASE_DATA.forEach(function (c) { w("js/" + c + ".js"); });
   });
   w("js/core/boot.js");
 })();

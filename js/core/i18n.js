@@ -32,8 +32,19 @@
     if (!warned[key]) { warned[key] = 1; if (window.console) console.warn("[i18n] missing key:", key); }
     return key;
   }
+  /* Tokens that are filled in by code, so numbers and dates are never typed by hand:
+       {cases}    = number of case studies (GTW.cases.length; the page must load data/cases)
+       {updated}  = GTW.site.updated (js/data/site.js)
+     They work inside every translated string, in every language. */
+  function tokens(s) {
+    if (typeof s !== "string" || s.indexOf("{") < 0) return s;
+    return s.replace(/\{(cases|updated)\}/g, function (m, name) {
+      if (name === "cases") return GTW.cases ? String(GTW.cases.length) : m;
+      return GTW.site && GTW.site.updated ? GTW.site.updated : m;
+    });
+  }
   function t(key, params) {
-    var s = raw(key);
+    var s = tokens(raw(key));
     if (params) s = s.replace(/\{(\w+)\}/g, function (m, p) { return params[p] != null ? params[p] : m; });
     return s;
   }

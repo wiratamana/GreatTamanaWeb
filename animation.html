@@ -3,10 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Animation &amp; physics · Wira Tamana</title>
-<meta name="description" content="MMD characters, IK, SIMD skinning, hair and skirt physics and toon shading in a custom engine.">
+<!--seo:begin-->
+<title>Animation &amp; physics: MMD, skinning, hair physics, tree wind · Wira Tamana</title>
+<meta name="description" content="PMX and VMD import, CCD IK, SIMD and GPU skinning, Verlet hair and skirt physics and toon shading in a custom C++ engine. Plus wind-driven tree skeletons that use the same skin math as glTF.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/animation.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/animation.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/animation.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/animation.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="Animation &amp; physics: MMD, skinning, hair physics, tree wind · Wira Tamana">
+<meta property="og:description" content="PMX and VMD import, CCD IK, SIMD and GPU skinning, Verlet hair and skirt physics and toon shading in a custom C++ engine. Plus wind-driven tree skeletons that use the same skin math as glTF.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/animation.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/engine-toon-character.webp">
+<meta property="og:image:width" content="1359">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="A toon-shaded character rendered in my own engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Animation &amp; physics: MMD, skinning, hair physics, tree wind · Wira Tamana">
+<meta name="twitter:description" content="PMX and VMD import, CCD IK, SIMD and GPU skinning, Verlet hair and skirt physics and toon shading in a custom C++ engine. Plus wind-driven tree skeletons that use the same skin math as glTF.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/engine-toon-character.webp">
+<meta name="twitter:image:alt" content="A toon-shaded character rendered in my own engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -15,7 +39,23 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
   <header class="page-head"><div class="wrap">
@@ -71,6 +111,17 @@
         <ul class="ticks" data-repeat="animation.toon" data-tpl="li"></ul>
       </section>
 
+      <section class="block">
+        <h2 id="trees" data-i18n="animation.tree.h"></h2>
+        <p data-i18n="animation.tree.p"></p>
+        <div class="dl" data-repeat="animation.tree" data-tpl="dl"></div>
+        <figure data-img="pl9-bones-debug" data-cap="animation.tree.fig.bones"></figure>
+        <div class="fig-grid">
+          <figure data-slot="pl9-wind-loop" data-kind="webp" data-cap="animation.tree.fig.loop"></figure>
+          <figure data-img="pl9-wind-diff" data-thumb data-cap="animation.tree.fig.diff"></figure>
+        </div>
+        <div class="grid g3" data-repeat="animation.treecase" data-tpl="card"></div>
+      </section>
       <section class="block">
         <h2 id="cases" data-i18n="animation.cases.h"></h2>
         <div class="grid g3" id="anim-cases"></div>

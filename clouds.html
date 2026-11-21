@@ -3,10 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Volumetric clouds · Wira Tamana</title>
-<meta name="description" content="Real-time volumetric cloud renderer in a custom Vulkan engine.">
+<!--seo:begin-->
+<title>Volumetric clouds: real-time ray-marched cloud renderer · Wira Tamana</title>
+<meta name="description" content="A volumetric cloud renderer in a custom Vulkan engine: ray marching, multiple scattering, cloud shadows and light shafts. 20 case studies, with the failures.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/clouds.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/clouds.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/clouds.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/clouds.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="Volumetric clouds: real-time ray-marched cloud renderer · Wira Tamana">
+<meta property="og:description" content="A volumetric cloud renderer in a custom Vulkan engine: ray marching, multiple scattering, cloud shadows and light shafts. 20 case studies, with the failures.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/clouds.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A landscape rendered in my own Vulkan engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Volumetric clouds: real-time ray-marched cloud renderer · Wira Tamana">
+<meta name="twitter:description" content="A volumetric cloud renderer in a custom Vulkan engine: ray marching, multiple scattering, cloud shadows and light shafts. 20 case studies, with the failures.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta name="twitter:image:alt" content="A landscape rendered in my own Vulkan engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -15,7 +39,23 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
   <header class="page-head"><div class="wrap">
@@ -68,6 +108,27 @@
         <div class="callout honest"><h4 data-i18n="clouds.cost.honest.h"></h4><p data-i18n="clouds.cost.honest.p"></p></div>
       </section>
 
+      <section class="block">
+        <h2 id="part2" data-i18n="clouds.p2.h"></h2>
+        <p data-i18n="clouds.p2.p1"></p>
+        <p data-i18n="clouds.p2.p2"></p>
+        <figure data-img="pl7-cloud-journey-sheet" data-cap="clouds.p2.fig.journey"></figure>
+        <p class="dim"><small data-i18n="clouds.p2.note"></small></p>
+        <div class="metrics" data-repeat="clouds.p2m" data-tpl="metric"></div>
+        <div class="callout honest"><h4 data-i18n="clouds.p2.cost.h"></h4><p data-i18n="clouds.p2.cost.p"></p></div>
+        <div class="dl" data-repeat="clouds.p2" data-tpl="dl"></div>
+        <div class="fig-grid">
+          <figure data-img="pl6-shafts-mountain" data-thumb data-cap="clouds.p2.fig.shaft1"></figure>
+          <figure data-img="pl6-shafts-small-clouds" data-thumb data-cap="clouds.p2.fig.shaft2"></figure>
+        </div>
+        <p data-i18n="clouds.qa.p"></p>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="clouds.qa.th1"></th><th class="num" data-i18n="clouds.qa.th2"></th><th class="num" data-i18n="clouds.qa.th3"></th></tr></thead>
+          <tbody data-repeat="clouds.qa" data-tpl="tr"></tbody>
+        </table></div>
+        <p class="dim"><small data-i18n="clouds.qa.note"></small></p>
+        <figure data-img="pl7-qa-score-chart" data-cap="clouds.p2.fig.chart"></figure>
+      </section>
       <section class="block">
         <h2 id="story" data-i18n="clouds.story.h"></h2>
         <p data-i18n="clouds.story.p"></p>

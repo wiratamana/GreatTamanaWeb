@@ -3,10 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How I work · Wira Tamana</title>
-<meta name="description" content="How I direct AI agents, write specs and verify results with measurements.">
+<!--seo:begin-->
+<title>How I work: directing AI agents and verifying with numbers · Wira Tamana</title>
+<meta name="description" content="How I write specs, direct parallel AI agents, run an AI art-director QA loop, measure honestly and report what was not proven.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/workflow.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/workflow.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/workflow.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/workflow.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="How I work: directing AI agents and verifying with numbers · Wira Tamana">
+<meta property="og:description" content="How I write specs, direct parallel AI agents, run an AI art-director QA loop, measure honestly and report what was not proven.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/workflow.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/app-subagents.webp">
+<meta property="og:image:width" content="1484">
+<meta property="og:image:height" content="990">
+<meta property="og:image:alt" content="Parallel sub-agents in GreatTamanaApp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How I work: directing AI agents and verifying with numbers · Wira Tamana">
+<meta name="twitter:description" content="How I write specs, direct parallel AI agents, run an AI art-director QA loop, measure honestly and report what was not proven.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/media/app-subagents.webp">
+<meta name="twitter:image:alt" content="Parallel sub-agents in GreatTamanaApp">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -15,7 +39,23 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
   <header class="page-head"><div class="wrap">
@@ -55,6 +95,22 @@
       </section>
 
       <section class="block">
+        <h2 id="qa" data-i18n="workflow.qa.h"></h2>
+        <p data-i18n="workflow.qa.p"></p>
+        <div class="flow" data-repeat="workflow.qa.flow" data-tpl="step"></div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th data-i18n="workflow.qa.th1"></th><th data-i18n="workflow.qa.th2"></th><th data-i18n="workflow.qa.th3"></th><th data-i18n="workflow.qa.th4"></th></tr></thead>
+          <tbody data-repeat="workflow.qa.score" data-tpl="tr"></tbody>
+        </table></div>
+        <h3 data-i18n="workflow.qa.rules.h"></h3>
+        <ul class="ticks" data-repeat="workflow.qa.rules" data-tpl="li"></ul>
+        <div class="callout lesson"><h4 data-i18n="workflow.qa.note.h"></h4><p data-i18n="workflow.qa.note.p"></p></div>
+        <p class="sp-t"><a href="world.html#process" data-i18n="workflow.qa.more1"></a></p>
+        <p><a href="case.html?id=tree-qa-loop" data-i18n="workflow.qa.more2"></a></p>
+        <p><a href="case.html?id=cloud-rejected-rewrite" data-i18n="workflow.qa.more3"></a></p>
+      </section>
+
+      <section class="block">
         <h2 id="premise" data-i18n="workflow.premise.h"></h2>
         <p data-i18n="workflow.premise.p"></p>
         <div class="dl" data-repeat="workflow.premise" data-tpl="dl"></div>
@@ -71,7 +127,7 @@
         <h2 id="parallel" data-i18n="workflow.par.h"></h2>
         <p data-i18n="workflow.par.p"></p>
         <div class="flow" data-repeat="workflow.par" data-tpl="step"></div>
-        <div class="callout good"><h4 data-i18n="workflow.par.note.h"></h4><p data-i18n="workflow.par.note.p"></p></div>
+        <div class="callout good"><h4 data-i18n="workflow.par.note.h"></h4><p data-i18n="workflow.par.note.p"></p><p data-i18n="workflow.par.note.p2"></p></div>
       </section>
 
       <section class="block">

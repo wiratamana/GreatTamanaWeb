@@ -22,13 +22,17 @@ button.chip:hover { border-color: var(--accent-line); color: var(--text); }
 .badge.warn { color: var(--warn); border-color: rgba(240, 180, 76, .4); background: rgba(240, 180, 76, .08); }
 .badge.bad  { color: var(--bad);  border-color: rgba(240, 106, 106, .4); background: rgba(240, 106, 106, .08); }
 .badge.accent { color: var(--accent-2); border-color: var(--accent-line); background: var(--accent-soft); }
+/* work finished in my local build but not pushed to GitHub yet (see case-card.js): amber, dashed border, sentence case so the longer label fits */
+.badge.local { color: var(--warn); border: 1px dashed rgba(240, 180, 76, .6); background: transparent; text-transform: none; letter-spacing: .02em; }
 
 /* ---------- hero (home) ---------- */
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); isolation: isolate; }
 .hero-bg { position: absolute; inset: 0; z-index: -2; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: .5; }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(13, 16, 20, .96) 0%, rgba(13, 16, 20, .78) 45%, rgba(13, 16, 20, .25) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 35%); }
-.hero-inner { padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.hero-bg img, .hero-bg video { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: .72; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(13, 16, 20, .9) 0%, rgba(13, 16, 20, .6) 42%, rgba(13, 16, 20, .12) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 30%); }
+.hero h1, .hero .lead, .hero .tagline { text-shadow: 0 1px 22px rgba(0, 0, 0, .55); }
+/* padding-block only: the shorthand with "0" side padding used to cancel the .wrap gutter, so on phones the hero text touched the screen edge */
+.hero-inner { padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.5rem, 6vw, 4rem); }
 .hero h1 { max-width: 17ch; margin-bottom: 1rem; }
 html[lang="ja"] .hero h1 { max-width: 20ch; }
 .hero .lead { color: var(--text); opacity: .86; margin-bottom: 1.6rem; max-width: 60ch; }
@@ -37,7 +41,7 @@ html[lang="ja"] .hero h1 { max-width: 20ch; }
 
 /* ---------- stat strip ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: 2.2rem; }
-.stat { background: rgba(22, 27, 34, .9); padding: 1rem 1.2rem; }
+.stat { background: var(--stat-bg); padding: 1rem 1.2rem; }
 .stat .v { display: block; font-size: 1.7rem; font-weight: 700; letter-spacing: -.02em; color: var(--text); font-variant-numeric: tabular-nums; }
 .stat .l { display: block; font-size: var(--fs-s); color: var(--text-2); line-height: 1.4; }
 
@@ -120,7 +124,13 @@ a.card .more::after { content: " →"; }
 .lb button { position: absolute; top: .8rem; right: 1rem; background: var(--surface-2); border: 1px solid var(--line-2); color: var(--text); border-radius: var(--r-s); font-size: 1.1rem; padding: .3rem .7rem; cursor: pointer; }
 
 /* ---------- tables ---------- */
-.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); margin: 1.2rem 0; background: var(--surface); }
+/* scroll hint: when a table is wider than the screen, a soft shadow shows on the side that has more (Lea Verou pattern: two covers that move with the content ("local"), two shadows that stay ("scroll")) */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); margin: 1.2rem 0; background:
+  linear-gradient(to right, var(--surface) 30%, rgba(0, 0, 0, 0)) left center / 44px 100% no-repeat local,
+  linear-gradient(to left, var(--surface) 30%, rgba(0, 0, 0, 0)) right center / 44px 100% no-repeat local,
+  radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0)) left center / 16px 100% no-repeat scroll,
+  radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0)) right center / 16px 100% no-repeat scroll,
+  var(--surface); }
 table.tbl { width: 100%; border-collapse: collapse; font-size: .93rem; }
 .tbl th, .tbl td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 .tbl th { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); background: var(--surface-2); font-weight: 600; white-space: nowrap; }
@@ -253,3 +263,117 @@ a.card .fig figcaption { display: none; }
 .card.flat .ticks { margin: 0; }
 .page-grid .content > .fig:first-child, .page-grid .content > .fig-grid:first-child { margin-top: 1.4rem; }
 .hero .stats { max-width: 980px; }
+
+/* ---------- odd item in the stat grid (2 columns on phones) ----------
+   An odd count leaves one empty cell, and the grid background (a line colour) would show as a grey box. Let the last item use the full row. */
+@media (max-width: 600px) {
+  .stats > .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* ---------- proof line on a case page: work that is not on GitHub yet ---------- */
+.case-meta a code { color: var(--accent-2); }
+.case-meta a:hover code { border-color: var(--accent-line); }
+.proof-pending { color: var(--warn); font-family: var(--mono); font-size: .8rem; }
+.proof-pending::before { content: "◐ "; }
+
+/* ---------- sticky Contact / CV pill (built by js/core/layout.js) ----------
+   Hidden until the visitor scrolled 600 px. visibility:hidden keeps it out of the tab order while hidden. */
+.cta-pill { position: fixed; right: clamp(12px, 2.5vw, 28px); bottom: clamp(12px, 2.5vw, 28px); z-index: 90; display: flex; gap: .5rem;
+  padding: .45rem; border-radius: 999px; background: var(--glass); border: 1px solid var(--line-2);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+.cta-pill.on { opacity: 1; visibility: visible; transform: none; }
+.cta-pill .btn { border-radius: 999px; padding: .5rem 1rem; font-size: .88rem; }
+@media (max-width: 600px) { .cta-pill { right: auto; left: 50%; bottom: 12px; transform: translate(-50%, 12px); } .cta-pill.on { transform: translate(-50%, 0); } }
+
+/* ==========================================================================
+   hero v2 (CORE-A): two-column hero with a recruiter summary card, and the 60 second tour strip.
+   Markup for the home page (all text from i18n keys):
+
+   <section class="hero">
+     <div class="hero-bg"><img src="assets/img/world-hero.webp" alt="" fetchpriority="high" decoding="async"></div>
+     <div class="wrap hero-inner has-rs">
+       <div class="hero-main"> <span class="tagline"> <h1> <p class="lead"> <div class="hero-cta"> </div>
+       <aside class="rs" aria-labelledby="rs-h">
+         <h2 class="rs-h" id="rs-h">Recruiter summary</h2>
+         <div class="dl" data-repeat="home.rs" data-tpl="dl"></div>       (rows: role, where, proof, stack, contact ...)
+         <div class="rs-actions"> <a class="btn primary"> <a class="btn"> </div>
+       </aside>
+       <div class="hero-stats"> <div class="stats" ...> <p class="dim"><small>...</small></p> </div>
+     </div>
+   </section>
+   <section class="tour"><div class="wrap"> <h2> <div class="flow" data-repeat="home.tour" data-tpl="step"></div> </div></section>
+   Tour steps become links when the step has a  .href  key (js/core/repeat.js).
+   ========================================================================== */
+.hero-inner.has-rs { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, 1fr); gap: 1.6rem clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.hero-inner.has-rs > .hero-main { min-width: 0; }
+.hero-inner.has-rs > .hero-stats { grid-column: 1 / -1; }
+.hero-inner.has-rs .hero-stats .stats { margin-top: .4rem; }
+.hero-inner.has-rs h1 { max-width: 20ch; }
+.rs { background: var(--glass); border: 1px solid var(--accent-line); border-radius: var(--r-l); padding: 1.1rem 1.25rem 1.2rem;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--shadow); }
+.rs .rs-h { font-family: var(--mono); font-size: .74rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin: 0 0 .5rem; font-weight: 600; }
+.rs .dl { border: 0; background: transparent; margin: 0; border-radius: 0; }
+.rs .dl .r { grid-template-columns: minmax(86px, 118px) 1fr; gap: .8rem; padding: .5rem 0; }
+.rs .dl .k { font-size: .84rem; color: var(--text-3); font-weight: 500; }
+.rs .dl .d { font-size: .9rem; color: var(--text); }
+.rs-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .9rem; }
+.rs-actions .btn { padding: .5rem .95rem; font-size: .88rem; }
+@media (max-width: 900px) {
+  .hero-inner.has-rs { grid-template-columns: minmax(0, 1fr); }
+  .rs { max-width: 560px; }
+}
+
+.tour { background: var(--bg-2); border-bottom: 1px solid var(--line); padding-block: clamp(1.6rem, 4vw, 2.6rem); }
+.tour h2 { margin-bottom: .2rem; }
+.tour .flow { margin: 1.5rem 0 0; }
+.tour .flow a.st { display: block; color: inherit; transition: border-color .15s, background .15s, transform .15s; }
+.tour .flow a.st:hover { border-color: var(--accent-line); background: var(--surface-2); transform: translateY(-2px); text-decoration: none; }
+.tour .flow a.st h4 { color: var(--text); }
+
+/* ==========================================================================
+   home v2 (W-HOME): job line in the hero, stats note, newest-work block. Tokens only.
+   ========================================================================== */
+.hero .hero-main .lead { margin-bottom: 1rem; }
+.hero .hero-job { display: inline-block; margin: 0 0 1.4rem; padding: .5rem .85rem; max-width: 60ch; border: 1px solid var(--accent-line); border-left: 3px solid var(--accent);
+  border-radius: var(--r-s); background: var(--glass-2); color: var(--text); font-weight: 600; font-size: .95rem; line-height: 1.45; text-shadow: none; }
+.hero-stats .dim { margin: .7rem 0 0; }
+#world .fig-grid { margin-top: 0; }
+#world .metrics { margin-top: 1rem; }
+#world .callout { margin-top: 1rem; }
+
+/* ==========================================================================
+   QA-A fixes (2026-11-22)
+   ========================================================================== */
+/* a heading that comes straight after a grid of cards had no space above it ("Related case studies", "The cloud story continues") */
+.content > h3, .block > h3 { margin-top: 2rem; }
+/* figures of different height in one row: do not stretch the shorter box (it left a big empty dark area under the picture) */
+.fig-grid { align-items: start; }
+.grid > .fig { align-self: start; }
+
+/* ==========================================================================
+   FIX-1: mobile and accessibility fixes from QA-B (2026-11-22)
+   ========================================================================== */
+/* A picture is created by media.js with loading="lazy" and no width/height, so it had 0 height until the file arrived and then pushed the page down.
+   "auto 2 / 1" = until the file is there, reserve a 2:1 box (most pictures are 2:1); after loading, the real ratio is used. Not for cropped figures (they set a ratio
+   themselves) and not for the tiles in cards (they fill a box). */
+.fig:not(.crop) .m > img { aspect-ratio: auto 2 / 1; }
+.proj .thumb .fig .m > img, .case-card .thumb .fig .m > img { aspect-ratio: auto; }
+
+/* tables on phones: the header may wrap, cells are tighter, and a table with 4 or more columns keeps a minimum width so that it scrolls (with the shadow hint)
+   instead of crushing every column to a few letters */
+@media (max-width: 600px) {
+  .tbl th, .tbl td { padding: .5rem .55rem; }
+  .tbl td { font-size: .84rem; }
+  .tbl th { white-space: normal; }
+  .tbl:has(thead th:nth-child(4)) { min-width: 560px; }
+}
+
+/* bigger tap targets (WCAG 2.2 asks for 24 px, 40 px is comfortable). The negative margin keeps the old look of the line. */
+.crumbs a { display: inline-block; padding-block: .6rem; margin-block: -.6rem; }
+@media (max-width: 700px) {
+  button.chip { min-height: 40px; }
+  .contact-list a { display: inline-block; padding-block: .5rem; }
+  .site-footer li { margin: 0; }
+  .site-footer li a { display: inline-block; padding-block: .5rem; }
+}

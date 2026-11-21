@@ -16,6 +16,7 @@
     try {
       GTW.layout.header();
       GTW.layout.footer();
+      GTW.layout.contactPill();
       var contact = document.querySelectorAll("[data-contact]");
       for (var c = 0; c < contact.length; c++) GTW.layout.contactList(contact[c]);
 

@@ -1,6 +1,12 @@
 # originals and work files, not published
 assets/src/
 assets/drop-in/
+# local paths of the original pictures (see tools/build_images.py), never commit
+tools/local_paths.json
 __pycache__/
 *.pyc
 i18n/ja/*.todo.txt
+# test output (smoke_test --shots, find_placeholders --out), never commit
+out/
+*_shots/
+placeholders.md

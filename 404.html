@@ -3,23 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/GreatTamanaWeb/">
+<!--seo:begin-->
 <title>Page not found · Wira Tamana</title>
+<meta name="robots" content="noindex">
 <meta name="theme-color" content="#0d1014">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="/GreatTamanaWeb/css/tokens.css">
 <link rel="stylesheet" href="/GreatTamanaWeb/css/base.css">
 <link rel="stylesheet" href="/GreatTamanaWeb/css/components.css">
-<base href="/GreatTamanaWeb/">
 <script src="/GreatTamanaWeb/js/core/loader.js"></script>
 </head>
 <body>
+<!-- <base> turns "#main" into the home page URL, so the skip link moves the focus with a tiny handler -->
+<a class="skip" href="#main" onclick="var m=document.getElementById('main');m.scrollIntoView();m.focus();return false" data-i18n="skip"></a>
 <div id="site-header"></div>
-<main id="main">
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
+<main id="main" tabindex="-1" style="outline:0">
   <header class="page-head"><div class="wrap">
     <span class="eyebrow">404</span>
     <h1 data-i18n="notfound.h1"></h1>
     <p class="lead" data-i18n="notfound.p"></p>
-    <p><a class="btn primary" href="index.html" data-i18n="notfound.home"></a></p>
+    <p class="row">
+      <a class="btn primary" href="index.html" data-i18n="notfound.home"></a>
+      <a class="btn" href="world.html" data-i18n="nav.world"></a>
+      <a class="btn ghost" href="journal.html" data-i18n="nav.journal"></a>
+    </p>
   </div></header>
 </main>
 <div id="site-footer"></div>

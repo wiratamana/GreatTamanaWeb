@@ -12,14 +12,16 @@ GTW.i18n.add("ja", {
   "slot.app-engine-bridge": "アプリとエンジンのブリッジ連携",
   "slot.app-engine-bridge.hint": "チャット内で描画済みエンジンフレームを返している gte_send_request のツールカード。",
 
-  "slot.demo-agent-visual-debug": "デモ：フレームを見ながらデバッグするエージェント",
-  "slot.demo-agent-visual-debug.hint": "画面録画（60〜120秒、MP4）：エージェントがエンジンをビルドし、フレームを取得し、プロファイラを読んでレンダリング不具合を修正する様子。",
   "slot.demo-editor-tour": "デモ：エディタ紹介ツアー",
   "slot.demo-editor-tour.hint": "画面録画（MP4）：Hierarchy、Sceneビュー、プロファイラ、Frame Debugger、レンダーグラフ、ホットリロードの一連の動作。",
   "slot.demo-clouds-flythrough": "デモ：雲のフライスルー",
   "slot.demo-clouds-flythrough.hint": "画面録画（MP4）：昼から夕暮れへと変化するなか、雲の影とライトシャフトを伴う雲層をカメラが通り抜ける映像。",
   "slot.demo-physics-loop": "デモ：スカートと髪の物理",
   "slot.demo-physics-loop.hint": "修正後の物理演算で踊るキャラクターの短いアニメーションWebPループ（3〜6秒）。",
+  "slot.pl9-wind-loop": "風に揺れるオークの林：エンジンの実フレーム8枚を往復再生。動くのは木だけです。",
+  "slot.pl9-wind-loop.hint": "アニメーションWebP、幅960 px、14フレーム、各125 ms。撮影方法：風シーケンスツールがオークの林を0.125秒間隔で8フレーム撮影（風の強さ1、ガストネス0.8）。フレームを往復再生（ピンポン）して、継ぎ目のないループにしています。このキャプチャでは草は動いていません。",
+  "slot.pl9-wind-loop-sakura": "同じ方法で撮った、風に揺れる桜の並木。動きは小さく、ぱっと見ではほとんど止まって見えます。",
+  "slot.pl9-wind-loop-sakura.hint": "アニメーションWebP、幅960 px、14フレーム、各125 ms。オークのループと同じ撮影方法（8フレーム、ピンポン）。桜はオークよりずっと動きが小さいため、ループはほぼ静止して見えます。",
 
   "slot.editor-overview": "エディタ全体像",
   "slot.editor-overview.hint": "エディタウィンドウ全体：Hierarchy、Sceneビュー、Gameビュー、Inspector、下部パネルに栄えるシーンを表示した状態。",

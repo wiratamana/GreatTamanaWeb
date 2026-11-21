@@ -3,13 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--seo:begin-->
 <title>Wira Tamana · Graphics &amp; Engine Programmer</title>
-<meta name="description" content="Portfolio of Wira Tamana: Vulkan game engine, AI agent app and R&amp;D journal.">
+<meta name="description" content="Portfolio of Wira Tamana. A Vulkan game engine with a procedural world (terrain, rivers, trees), an AI agent desktop app, and an R&amp;D journal with measured results.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
 <meta property="og:title" content="Wira Tamana · Graphics &amp; Engine Programmer">
-<meta property="og:image" content="assets/img/cloud-hero.webp">
+<meta property="og:description" content="Portfolio of Wira Tamana. A Vulkan game engine with a procedural world (terrain, rivers, trees), an AI agent desktop app, and an R&amp;D journal with measured results.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A landscape rendered in my own Vulkan engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wira Tamana · Graphics &amp; Engine Programmer">
+<meta name="twitter:description" content="Portfolio of Wira Tamana. A Vulkan game engine with a procedural world (terrain, rivers, trees), an AI agent desktop app, and an R&amp;D journal with measured results.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta name="twitter:image:alt" content="A landscape rendered in my own Vulkan engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Wira Tamana",
+  "jobTitle": "Graphics and engine programmer",
+  "url": "https://wiratamana.github.io/GreatTamanaWeb/",
+  "description": "Portfolio of Wira Tamana: a Vulkan game engine with editor, an AI agent desktop app and an R&D journal with measured results.",
+  "knowsAbout": [
+    "Vulkan",
+    "C++20",
+    "GLSL",
+    "Game engine",
+    "Procedural generation",
+    "Volumetric clouds",
+    "Real-time rendering",
+    "Game engine tools"
+  ],
+  "sameAs": [
+    "https://github.com/wiratamana"
+  ],
+  "email": "mailto:wiratamana@icloud.com"
+}
+</script>
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -18,29 +63,90 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO: what I am, what I want, one strong picture, recruiter summary, public numbers ===== -->
   <section class="hero">
-    <div class="hero-bg"><img src="assets/img/cloud-hero.webp" alt=""></div>
-    <div class="wrap hero-inner">
-      <span class="tagline" data-i18n="home.hero.tag"></span>
-      <h1 data-i18n="home.hero.h1"></h1>
-      <p class="lead" data-i18n="home.hero.lead"></p>
-      <div class="hero-cta">
-        <a class="btn primary" href="engine.html" data-i18n="home.hero.cta1"></a>
-        <a class="btn" href="journal.html" data-i18n="home.hero.cta2"></a>
-        <a class="btn ghost" href="about.html#contact" data-i18n="home.hero.cta3"></a>
+    <div class="hero-bg"><img src="assets/img/world-hero.webp" alt="" width="1600" height="771" fetchpriority="high" decoding="async"></div>
+    <div class="wrap hero-inner has-rs">
+      <div class="hero-main">
+        <span class="tagline" data-i18n="home.hero.tag"></span>
+        <h1 data-i18n="home.hero.h1"></h1>
+        <p class="lead" data-i18n="home.hero.lead"></p>
+        <p class="hero-job" data-i18n="home.hero.job"></p>
+        <div class="hero-cta">
+          <a class="btn primary" href="world.html" data-i18n="home.hero.cta1"></a>
+          <a class="btn" href="journal.html" data-i18n="home.hero.cta2"></a>
+          <a class="btn ghost" href="about.html#contact" data-i18n="home.hero.cta3"></a>
+        </div>
+        <p class="dim"><small data-i18n="home.hero.cap"></small></p>
       </div>
-      <div class="stats" data-repeat="home.stats" data-tpl="stat"></div>
-      <p class="dim" style="margin:.7rem 0 0"><small data-i18n="home.stats.note"></small></p>
+      <aside class="rs" aria-labelledby="rs-h">
+        <h2 class="rs-h" id="rs-h" data-i18n="home.rs.h"></h2>
+        <div class="dl" data-repeat="home.rs" data-tpl="dl"></div>
+        <ul class="contact-list" data-contact></ul>
+      </aside>
+      <div class="hero-stats">
+        <div class="stats" data-repeat="home.stats" data-tpl="stat"></div>
+        <p class="dim"><small data-i18n="home.stats.note"></small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 60 SECOND TOUR ===== -->
+  <section class="tour" id="tour" aria-labelledby="tour-h">
+    <div class="wrap">
+      <h2 id="tour-h" data-i18n="home.tour.h"></h2>
+      <p class="muted" data-i18n="home.tour.sub"></p>
+      <div class="flow" data-repeat="home.tour" data-tpl="step"></div>
+    </div>
+  </section>
+
+  <!-- ===== NEWEST WORK: PROCEDURAL WORLD ===== -->
+  <section class="section" id="world">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="home.world.eyebrow"></span>
+        <h2 data-i18n="home.world.h"></h2>
+        <p data-i18n="home.world.sub"></p>
+      </div>
+      <div class="fig-grid">
+        <figure data-img="pl9-default-open-notrees" data-cap="home.world.cap1"></figure>
+        <figure data-img="pl9-default-open" data-cap="home.world.cap2"></figure>
+      </div>
+      <p class="muted" data-i18n="home.world.p1"></p>
+      <div class="metrics" data-repeat="home.world.m" data-tpl="metric"></div>
+      <div class="callout honest">
+        <h4 data-i18n="home.world.honest.h"></h4>
+        <p data-i18n="home.world.honest.p"></p>
+      </div>
+      <p class="sp-t">
+        <a class="btn primary" href="world.html" data-i18n="home.world.cta1"></a>
+        <a class="btn" href="journal.html#world" data-i18n="home.world.cta2"></a>
+      </p>
     </div>
   </section>
 
   <!-- ===== WHAT I CAN DO ===== -->
-  <section class="section" id="can">
+  <section class="section alt" id="can">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow" data-i18n="home.can.eyebrow"></span>
@@ -52,7 +158,7 @@
   </section>
 
   <!-- ===== WHAT I MADE ===== -->
-  <section class="section alt" id="made">
+  <section class="section" id="made">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow" data-i18n="home.made.eyebrow"></span>
@@ -61,7 +167,7 @@
       </div>
       <div class="grid g3">
         <a class="card proj" href="engine.html">
-          <div class="thumb"><img src="assets/img/thumb/cloud-final-s3.webp" alt="" loading="lazy"></div>
+          <div class="thumb"><img src="assets/img/thumb/pl9-valley.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="body">
             <span class="meta" data-i18n="home.made.1.meta"></span>
             <h3 data-i18n="home.made.1.t"></h3>
@@ -79,7 +185,7 @@
           </div>
         </a>
         <a class="card proj" href="journal.html">
-          <div class="thumb"><img src="assets/img/thumb/cloud-shafts-sheet.webp" alt="" loading="lazy"></div>
+          <div class="thumb"><img src="assets/img/thumb/cloud-shafts-sheet.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="body">
             <span class="meta" data-i18n="home.made.3.meta"></span>
             <h3 data-i18n="home.made.3.t"></h3>
@@ -92,7 +198,7 @@
   </section>
 
   <!-- ===== PROOF ===== -->
-  <section class="section" id="proof">
+  <section class="section alt" id="proof">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow" data-i18n="home.feat.eyebrow"></span>
@@ -106,7 +212,7 @@
   </section>
 
   <!-- ===== CLOUDS ===== -->
-  <section class="section alt" id="clouds">
+  <section class="section" id="clouds">
     <div class="wrap cols2" style="align-items:center">
       <div>
         <span class="eyebrow" data-i18n="home.cloud.eyebrow"></span>
@@ -120,7 +226,7 @@
   </section>
 
   <!-- ===== HOW I WORK ===== -->
-  <section class="section" id="how">
+  <section class="section alt" id="how">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow" data-i18n="home.how.eyebrow"></span>
@@ -133,7 +239,7 @@
   </section>
 
   <!-- ===== HONEST LIMITS + STACK ===== -->
-  <section class="section alt" id="honest">
+  <section class="section" id="honest">
     <div class="wrap cols2">
       <div>
         <h2 data-i18n="home.limits.h"></h2>
@@ -149,7 +255,7 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="section" id="contact">
+  <section class="section alt" id="contact">
     <div class="wrap">
       <div class="contact-box">
         <h2 data-i18n="home.contact.h"></h2>

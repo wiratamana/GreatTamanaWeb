@@ -3,10 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GreatTamanaEngine · Wira Tamana</title>
-<meta name="description" content="Vulkan 1.3 game engine and editor in C++20.">
+<!--seo:begin-->
+<title>GreatTamanaEngine: Vulkan game engine and editor · Wira Tamana</title>
+<meta name="description" content="A Vulkan 1.3 game engine and editor from scratch in C++20: render graph, GPU-driven rendering, 14 render features, MMD characters, profiler, frame debugger.">
 <meta name="theme-color" content="#0d1014">
+<link rel="canonical" href="https://wiratamana.github.io/GreatTamanaWeb/engine.html">
+<link rel="alternate" hreflang="en" href="https://wiratamana.github.io/GreatTamanaWeb/engine.html">
+<link rel="alternate" hreflang="ja" href="https://wiratamana.github.io/GreatTamanaWeb/engine.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://wiratamana.github.io/GreatTamanaWeb/engine.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wira Tamana">
+<meta property="og:title" content="GreatTamanaEngine: Vulkan game engine and editor · Wira Tamana">
+<meta property="og:description" content="A Vulkan 1.3 game engine and editor from scratch in C++20: render graph, GPU-driven rendering, 14 render features, MMD characters, profiler, frame debugger.">
+<meta property="og:url" content="https://wiratamana.github.io/GreatTamanaWeb/engine.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A landscape rendered in my own Vulkan engine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GreatTamanaEngine: Vulkan game engine and editor · Wira Tamana">
+<meta name="twitter:description" content="A Vulkan 1.3 game engine and editor from scratch in C++20: render graph, GPU-driven rendering, 14 render features, MMD characters, profiler, frame debugger.">
+<meta name="twitter:image" content="https://wiratamana.github.io/GreatTamanaWeb/assets/img/og-world.jpg">
+<meta name="twitter:image:alt" content="A landscape rendered in my own Vulkan engine">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<!--seo:end-->
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -15,7 +39,23 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip"></a>
 <div id="site-header"></div>
-<noscript><p class="wrap" style="padding-block:2rem">This site needs JavaScript (language switch and texts).</p></noscript>
+<!--seo:noscript-->
+<noscript>
+<div class="wrap" style="padding-block:2rem">
+<p><strong>Wira Tamana</strong>: Graphics, engine and tools programmer. Vulkan game engine in C++20, an AI agent desktop app in C#, and an R&amp;D journal with measured results. Looking for a role in Japan.</p>
+<p>This site needs JavaScript for its texts and the language switch. Without it, use these links:</p>
+<ul>
+<li><a href="engine.html">Engine and editor</a></li>
+<li><a href="world.html">Procedural world</a></li>
+<li><a href="journal.html">R&amp;D journal</a></li>
+<li><a href="app.html">AI agent app</a></li>
+<li><a href="about.html">About and contact</a></li>
+<li><a href="mailto:wiratamana@icloud.com">wiratamana@icloud.com</a></li>
+<li><a href="https://github.com/wiratamana">GitHub</a></li>
+</ul>
+</div>
+</noscript>
+<!--seo:/noscript-->
 
 <main id="main">
   <header class="page-head"><div class="wrap">
@@ -24,6 +64,7 @@
     <h1 data-i18n="engine.h1"></h1>
     <p class="lead" data-i18n="engine.lead"></p>
     <div class="row sp-t" style="margin-top:1.2rem"><span data-repo="engine"></span>
+      <a class="btn" href="world.html" data-i18n="nav.world"></a>
       <a class="btn ghost" href="rendering.html" data-i18n="nav.engine.rendering"></a>
       <a class="btn ghost" href="animation.html" data-i18n="nav.engine.animation"></a>
       <a class="btn ghost" href="tools.html" data-i18n="nav.engine.tools"></a></div>
@@ -34,16 +75,19 @@
     <div class="content">
 
       <div class="stats" style="margin-top:0" data-repeat="engine.stats" data-tpl="stat"></div>
+      <p class="dim" style="margin:.6rem 0 1rem"><small data-i18n="engine.stats.note"></small></p>
       <figure data-slot="editor-overview" data-kind="image" data-cap="engine.fig.editor"></figure>
       <div class="grid g2">
-        <figure data-slot="terrain-dusk" data-kind="image" data-cap="slot.terrain-dusk"></figure>
-        <figure data-slot="sponza-lion" data-kind="image" data-cap="slot.sponza-lion"></figure>
+        <figure data-img="pl9-default-open" data-ratio="2/1" data-cap="engine.fig.world1"></figure>
+        <figure data-img="pl8-far-after" data-ratio="2/1" data-cap="engine.fig.world2"></figure>
       </div>
 
       <section class="block">
         <h2 id="what" data-i18n="engine.what.h"></h2>
         <p data-i18n="engine.what.p1"></p>
         <p data-i18n="engine.what.p2"></p>
+        <p data-i18n="engine.what.p3"></p>
+        <p><a class="btn primary" href="world.html" data-i18n="engine.what.cta"></a></p>
         <div class="dl" data-repeat="engine.facts" data-tpl="dl"></div>
       </section>
 
@@ -58,6 +102,18 @@
         <h2 id="rules" data-i18n="engine.rules.h"></h2>
         <p data-i18n="engine.rules.p"></p>
         <div class="grid g3" data-repeat="engine.rules" data-tpl="card"></div>
+      </section>
+
+      <section class="block">
+        <h2 id="modules" data-i18n="engine.mod.h"></h2>
+        <p data-i18n="engine.mod.p"></p>
+        <div class="dl" data-repeat="engine.mod" data-tpl="dl"></div>
+        <div class="callout honest"><h4 data-i18n="engine.mod.honest.h"></h4><p data-i18n="engine.mod.honest.p"></p></div>
+        <div class="row sp-t">
+          <a class="btn ghost" href="case.html?id=feature-modules-leak-removal" data-i18n="engine.mod.case1"></a>
+          <a class="btn ghost" href="case.html?id=big-world-orchestrator" data-i18n="engine.mod.case2"></a>
+          <a class="btn ghost" href="case.html?id=sync-validation-barriers" data-i18n="engine.mod.case3"></a>
+        </div>
       </section>
 
       <section class="block">

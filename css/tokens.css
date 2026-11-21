@@ -11,6 +11,9 @@
   --surface:   #161b22;
   --surface-2: #1b222b;
   --surface-3: #232d39;
+  --stat-bg:   rgba(22, 27, 34, .9);   /* stat tiles sit on the hero picture: slightly see-through. Print token block overrides it */
+  --glass:     rgba(17, 21, 27, .84);  /* recruiter card and floating pills on top of a picture */
+  --glass-2:   rgba(13, 16, 20, .72);  /* job line in the hero */
   --line:      #28313d;
   --line-2:    #384455;
 

@@ -4,11 +4,18 @@
    ========================================================================== */
 (function () {
   var GTW = window.GTW = window.GTW || {};
-  var BADGE = { landed: "good", partial: "warn", diagnosed: "accent", rejected: "bad" };
+  var BADGE = { landed: "good", partial: "warn", diagnosed: "accent", rejected: "bad", local: "local" };
 
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;"); }
 
   GTW.badgeClass = function (status) { return BADGE[status] || ""; };
+
+  /* STATUS BADGE. A case with proofPending:true is finished in my local build but NOT pushed to GitHub.
+     "Landed in engine" would be false for it, so its badge shows status.local ("Local only, not pushed") with its own
+     amber dashed class. The real outcome (landed/partial/...) is still shown on the case page, in the proof line
+     (status.local.<status>). The journal has no status filter chips (chips = Featured, All, categories), so a pending
+     case is found by the same chips as any other case. */
+  GTW.statusKey = function (c) { return c.proofPending ? "local" : c.status; };
 
   GTW.caseCard = function (c) {
     var a = document.createElement("a");
@@ -32,7 +39,7 @@
     var body = document.createElement("div");
     body.className = "body";
     body.innerHTML =
-      '<div class="row"><span class="badge ' + (BADGE[c.status] || "") + '" data-i18n="status.' + c.status + '"></span>' +
+      '<div class="row"><span class="badge ' + (BADGE[GTW.statusKey(c)] || "") + '" data-i18n="status.' + GTW.statusKey(c) + '"></span>' +
       '<span class="dim mono" data-i18n="cat.' + c.cat + '"></span></div>' +
       '<h3 data-i18n="case.' + c.id + '.title"></h3>' +
       '<p data-i18n="case.' + c.id + '.summary"></p>' +

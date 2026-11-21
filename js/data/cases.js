@@ -10,25 +10,32 @@
      case.<id>.bars.*       before/after bars (see core/ui.js)
 
    Fields:
-     cat     perf | anim | look | tools | cloud
-     status  landed | partial | diagnosed | rejected
-     thumb   image name from assets/img (no extension) or null -> metric tile
-     figs    [{img, at}]   at = problem | cause | fix | result   (default fix)
-     slots   [{id, kind, at}]  media you add later (see core/media.js)
-     feat    true = shown on the home page
-     proof   engine commit hash(es) where the work landed
+      cat     world | perf | anim | look | tools | cloud
+      status  landed | partial | diagnosed | rejected
+      thumb   image name from assets/img (no extension) or null -> metric tile
+      figs    [{img, at}]   at = problem | cause | fix | result   (default fix)
+      slots   [{id, kind, at}]  media you add later (see core/media.js)
+      feat    true = shown on the home page and in the journal "Featured" filter
+      proof   engine commit hash(es) where the work landed (each hash becomes a link to the repo)
+      proofPending  true = work is finished locally but not pushed yet: the case page says so instead of showing a hash
+      order   position inside the category (cloud story order, ...)
+
+   MORE ENTRIES live in separate files that push into this same list (loader.js loads them right after this file):
+      js/data/cases-world.js  cases-trees.js  cases-cloud2.js     (texts: i18n/<lang>/cases-world.js ...)
+   Rule used by tools/i18n_check.py: every entry starts with   { id: "...", cat: "...",   in exactly this field order.
    ========================================================================== */
 (function () {
   var GTW = window.GTW = window.GTW || {};
 
-  GTW.cats = ["perf", "anim", "look", "tools", "cloud"];
+  /* order of the categories everywhere (journal chips, sorting, prev/next) */
+  GTW.cats = ["world", "perf", "anim", "look", "tools", "cloud"];
 
   GTW.cases = [
     /* ------------------------------ PERFORMANCE ------------------------------ */
     { id: "culling", cat: "perf", date: "2026-11", status: "landed", feat: true, thumb: null,
       tags: ["GPU-driven", "Compute", "Hi-Z", "Profiling", "Vulkan"], proof: "52c871d",
       slots: [{ id: "case-culling", kind: "image", at: "problem" }] },
-    { id: "frames-in-flight", cat: "perf", date: "2026-11", status: "partial", feat: true, thumb: null,
+    { id: "frames-in-flight", cat: "perf", date: "2026-11", status: "partial", thumb: null,
       tags: ["Vulkan", "Synchronization", "Benchmarking", "Frame pacing"], proof: "00ec378",
       slots: [{ id: "case-frames-in-flight", kind: "image", at: "result" }] },
     { id: "render-graph-war", cat: "perf", date: "2026-11", status: "landed", thumb: null,
@@ -36,7 +43,7 @@
     { id: "shadow-caster", cat: "perf", date: "2026-11", status: "partial", thumb: null,
       tags: ["Cascaded shadows", "Culling", "Geometry", "Testing"], proof: "7826fbc",
       slots: [{ id: "case-shadow-caster", kind: "image", at: "result" }] },
-    { id: "skinning-physics", cat: "perf", date: "2026-11", status: "landed", feat: true, thumb: null,
+    { id: "skinning-physics", cat: "perf", date: "2026-11", status: "landed", thumb: null,
       tags: ["SIMD", "SSE2", "CPU profiling", "Physics", "Skinning"], proof: "258c610" },
 
     /* ------------------------------ ANIMATION & PHYSICS ------------------------------ */
@@ -106,7 +113,7 @@
     { id: "cloud-bloom", cat: "cloud", date: "2026-11", status: "landed", thumb: "cloud-bloom-threshold", order: 10,
       tags: ["Bloom", "Tone mapping", "Post-processing"],
       figs: [{ img: "cloud-bloom-halo", at: "problem" }, { img: "cloud-bloom-threshold", at: "method" }, { img: "cloud-sunset-sat13", at: "cause" }, { img: "cloud-sunset-sat11", at: "result" }] },
-    { id: "cloud-precision", cat: "cloud", date: "2026-11", status: "landed", feat: true, thumb: "cloud-precision", order: 11,
+    { id: "cloud-precision", cat: "cloud", date: "2026-11", status: "landed", thumb: "cloud-precision", order: 11,
       tags: ["Float precision", "Large worlds", "Camera", "Test design"],
       figs: [{ img: "cloud-precision", at: "result" }] },
     { id: "cloud-cost", cat: "cloud", date: "2026-11", status: "partial", thumb: "cloud-presets-s8", order: 12,
